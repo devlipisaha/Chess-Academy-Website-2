@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KnightVision Chess Academy Courses — Beginner to GM level. Chess Foundations, Tactical Mastery, Tournament Preparation, Junior Club, Online Classes and more.">
+<title>Courses & Programs — KnightVision Chess Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.courses-full-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.compare-section{background:var(--white);padding:64px 24px}
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.filter-btn{padding:8px 20px;border-radius:100px;border:1.5px solid var(--gray-1);background:var(--white);font-size:.82rem;font-weight:600;color:var(--text-3);cursor:pointer;transition:all var(--tr);font-family:var(--font-b)}
+.filter-btn:hover,.filter-btn.active{background:var(--navy);color:var(--white);border-color:var(--navy)}
+@media(max-width:900px){.courses-full-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="courses">
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="chess-hero-bg">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.06" preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 640"><defs><pattern id="cp" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="40" height="40" fill="white"/><rect x="40" y="40" width="40" height="40" fill="white"/></pattern></defs><rect width="640" height="640" fill="url(#cp)"/></svg>
+    <div style="position:absolute;right:3%;bottom:-30px;font-size:380px;opacity:.04;color:white;line-height:1;pointer-events:none">♟</div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Courses</span></div>
+    <h1>Courses & Programs</h1>
+    <p>Structured chess education for every level — from first moves to FIDE-rated competition. Find your perfect program.</p>
+  </div>
+</div>
+
+<!-- FILTER + COURSES -->
+<section class="section" style="background:var(--navy)">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;flex-wrap:wrap;gap:16px">
+      <div><div class="label" style="color:var(--gold-2)">All Programs</div><h2 class="title title-white">Choose Your Path</h2></div>
+    </div>
+    <div class="filter-bar">
+      <button class="filter-btn active">All Levels</button>
+      <button class="filter-btn">Beginner</button>
+      <button class="filter-btn">Intermediate</button>
+      <button class="filter-btn">Advanced</button>
+      <button class="filter-btn">Kids</button>
+      <button class="filter-btn">Online</button>
+    </div>
+    <div class="courses-full-grid">
+      <!-- 1 -->
+      <div class="course-card">
+        <div class="course-top">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="course-icon">♟</div>
+            <span class="course-level level-beginner">Beginner</span>
+          </div>
+          <div class="course-name">Chess Foundations</div>
+          <div class="course-desc">The perfect starting point. Learn piece movement, basic checkmates, opening principles, and the rules of the game in a structured and enjoyable format.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span>All piece movements & special rules</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Basic checkmates (K+R, K+Q)</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Opening principles (centre, development)</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Introduction to tactics</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>2 supervised practice games/week</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 12 Weeks</span><span class="course-meta-tag">👥 Max 8 students</span><span class="course-meta-tag">🕐 2hr/week</span><span class="course-meta-tag">📍 In-person</span></div>
+          <div class="course-price">৳3,500 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Enroll Now</button>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="course-card featured" style="position:relative">
+        <div class="popular-tag">Most Popular</div>
+        <div class="course-top">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="course-icon">♜</div>
+            <span class="course-level level-intermediate">Intermediate</span>
+          </div>
+          <div class="course-name">Tactical Mastery</div>
+          <div class="course-desc">Deep-dive into tactics, opening repertoire, middlegame strategy, and endgame fundamentals. Ideal for club players seeking rapid improvement.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span>600+ tactical puzzles library access</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Opening repertoire for White & Black</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Fundamental endgame techniques</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Weekly annotated game analysis</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>1 internal tournament/month</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 16 Weeks</span><span class="course-meta-tag">👥 Max 6 students</span><span class="course-meta-tag">🕐 3hr/week</span><span class="course-meta-tag">📍 In-person</span></div>
+          <div class="course-price">৳5,500 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Enroll Now</button>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="course-card">
+        <div class="course-top">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="course-icon">♚</div>
+            <span class="course-level level-advanced">Advanced</span>
+          </div>
+          <div class="course-name">Tournament Preparation</div>
+          <div class="course-desc">Intensive coaching for competitive players targeting their first or next FIDE rating. Game analysis, opening preparation, and mental training.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span>Deep opening preparation & novelties</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Computer-assisted game analysis</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Tournament psychology & time management</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>FIDE-rated tournament entry support</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Monthly 1-on-1 review session</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 Ongoing</span><span class="course-meta-tag">👥 Small group/1-1</span><span class="course-meta-tag">🕐 5hr/week</span><span class="course-meta-tag">📍 In-person</span></div>
+          <div class="course-price">৳9,500 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Enroll Now</button>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="course-card">
+        <div class="course-top">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="course-icon">🌟</div>
+            <span class="course-level level-kids">Kids (5–10)</span>
+          </div>
+          <div class="course-name">Junior Chess Club</div>
+          <div class="course-desc">A fun, gamified introduction to chess for children aged 5–10. Builds focus, memory, and problem-solving skills through play and storytelling.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span>Gamified piece introduction (stories)</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Fun checkmate puzzles & mini-games</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Concentration & memory exercises</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Monthly Junior Tournament</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Progress report for parents</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 10 Weeks</span><span class="course-meta-tag">👥 Max 10 kids</span><span class="course-meta-tag">🕐 1.5hr/week</span><span class="course-meta-tag">📍 In-person</span></div>
+          <div class="course-price">৳2,800 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Enroll Now</button>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="course-card">
+        <div class="course-top">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="course-icon">🌐</div>
+            <span class="course-level level-online">Online</span>
+          </div>
+          <div class="course-name">Online Live Classes</div>
+          <div class="course-desc">Live interactive coaching via Zoom with our certified coaches. Full access to recordings, puzzle platform, and weekly game review sessions.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span>Live Zoom sessions with certified coaches</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Session recordings for replay</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Lichess study materials & puzzles</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Weekly game submission & review</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Available for all levels</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 Flexible</span><span class="course-meta-tag">👥 Group or 1-on-1</span><span class="course-meta-tag">🕐 Anytime</span><span class="course-meta-tag">🌐 Online</span></div>
+          <div class="course-price">৳4,000 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Enroll Now</button>
+        </div>
+      </div>
+      <!-- 6 -->
+      <div class="course-card">
+        <div class="course-top">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div class="course-icon">👑</div>
+            <span class="course-level level-elite">Elite</span>
+          </div>
+          <div class="course-name">GM Mentorship Program</div>
+          <div class="course-desc">Exclusive 1-on-1 coaching from our Grandmaster consultant. For serious players targeting 2000+ ELO and national-level competition.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span>Private GM-level coaching sessions</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Fully customized curriculum</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Deep opening preparation with novelties</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Tournament travel & registration support</div>
+            <div class="course-feat"><span class="feat-icon">✓</span>Direct WhatsApp coach access</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 Custom</span><span class="course-meta-tag">👥 1-on-1 only</span><span class="course-meta-tag">🕐 Tailored</span><span class="course-meta-tag">⭐ Elite</span></div>
+          <div class="course-price">৳18,000 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare-section">
+  <div class="container">
+    <div class="sec-header sec-header-center">
+      <div class="label">Compare Plans</div>
+      <h2 class="title" style="margin-bottom:12px">Which Program is Right for You?</h2>
+    </div>
+    <div class="table-wrap" style="margin-top:36px">
+      <table>
+        <thead><tr>
+          <th>Feature</th><th>Foundations</th><th style="background:#1A3160">Tactical Mastery ⭐</th><th>Tournament Prep</th><th>Online Classes</th><th>GM Mentorship</th>
+        </tr></thead>
+        <tbody>
+          <tr><td>Live coaching sessions</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><td>Game analysis</td><td>Basic</td><td>Weekly</td><td>Deep</td><td>Weekly</td><td>Daily</td></tr>
+          <tr><td>Opening preparation</td><td>Principles</td><td>Repertoire</td><td>Novelties</td><td>Varies</td><td>Full prep</td></tr>
+          <tr><td>Puzzle library access</td><td>100</td><td>600+</td><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr>
+          <tr><td>Tournament access</td><td>Internal</td><td>Internal + External</td><td>FIDE-rated</td><td>Internal</td><td>All events</td></tr>
+          <tr><td>1-on-1 sessions</td><td>—</td><td>Monthly</td><td>Weekly</td><td>Optional</td><td>Every session</td></tr>
+          <tr><td>Progress reports</td><td>Monthly</td><td>Bi-weekly</td><td>Weekly</td><td>Monthly</td><td>Continuous</td></tr>
+          <tr><td>Price/month</td><td>৳3,500</td><td style="font-weight:700;color:#C8952E">৳5,500</td><td>৳9,500</td><td>৳4,000</td><td>৳18,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--cream)">
+  <div class="container" style="max-width:780px">
+    <div class="sec-header sec-header-center">
+      <div class="label">FAQ</div>
+      <h2 class="title" style="margin-bottom:12px">Common Questions</h2>
+    </div>
+    <div style="margin-top:36px">
+      <div class="faq-item open"><div class="faq-q">How do I know which course is right for me? <span class="faq-icon">+</span></div><div class="faq-a">We offer a free skill assessment — either online or in-person — to evaluate your current level and recommend the best program. Just register and we'll schedule the assessment within 48 hours.</div></div>
+      <div class="faq-item"><div class="faq-q">Can I switch programs if I outgrow my current one? <span class="faq-icon">+</span></div><div class="faq-a">Absolutely. We encourage students to progress between levels as they improve. Your coach will recommend advancement when you're ready, and transitions happen at the start of a new module.</div></div>
+      <div class="faq-item"><div class="faq-q">What is your refund policy? <span class="faq-icon">+</span></div><div class="faq-a">We offer a full refund if you are not satisfied within the first 7 days of joining. After that, we offer a pro-rated refund for unused sessions.</div></div>
+      <div class="faq-item"><div class="faq-q">Are there any prerequisite ratings for courses? <span class="faq-icon">+</span></div><div class="faq-a">No FIDE rating is required for Foundations, Junior Club, or Online Classes. Tournament Preparation recommends a club-level skill base. GM Mentorship requires a FIDE rating of 1800+.</div></div>
+      <div class="faq-item"><div class="faq-q">Do you offer group discounts? <span class="faq-icon">+</span></div><div class="faq-a">Yes — families enrolling 2 or more children receive a 10% discount. Schools and corporate groups can contact us for custom bulk pricing.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="container">
+    <h2>Not Sure Where to Start?</h2>
+    <p>Take our free assessment and we'll recommend the perfect program for you.</p>
+    <div class="cta-btns">
+      <a href="register.html" class="btn btn-gold">Book Free Assessment</a>
+      <a href="contact.html" class="btn btn-outline-white">Ask a Question</a>
+    </div>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

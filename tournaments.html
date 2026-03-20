@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chess Tournaments at KnightVision Academy — Upcoming events, results, and how to register. FIDE-rated and open tournaments in Bangladesh.">
+<title>Tournaments — KnightVision Chess Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.tourn-hero-info{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px}
+.tourn-hero-card{background:rgba(200,149,46,.12);border:1px solid rgba(200,149,46,.3);border-radius:12px;padding:14px 22px;text-align:center}
+.tourn-hero-val{font-family:var(--font-d);font-size:1.4rem;font-weight:700;color:var(--gold-2)}
+.tourn-hero-key{font-size:.7rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em}
+.featured-tourn{background:linear-gradient(135deg,var(--navy-3),var(--navy-2));border:2px solid var(--gold-2);border-radius:var(--r-lg);padding:40px;margin-bottom:36px;position:relative;overflow:hidden}
+.featured-tourn::before{content:'FEATURED EVENT';position:absolute;top:18px;right:-30px;background:var(--gold);color:var(--navy);font-size:.65rem;font-weight:800;letter-spacing:.1em;padding:5px 48px;transform:rotate(45deg);transform-origin:center}
+.tourn-detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,.05);border-radius:10px;overflow:hidden;margin:20px 0;border:1px solid rgba(255,255,255,.1)}
+.tourn-detail-item{padding:16px 18px;border-right:1px solid rgba(255,255,255,.08);text-align:center}
+.tourn-detail-item:last-child{border-right:none}
+.tourn-detail-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-2);margin-bottom:4px;font-weight:700}
+.tourn-detail-val{font-size:.9rem;font-weight:600;color:var(--white)}
+.past-results{background:var(--cream);padding:64px 24px}
+.result-row{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--gray-1)}
+.result-pos{font-family:var(--font-d);font-size:1.3rem;font-weight:900;color:var(--gold);width:36px;flex-shrink:0;text-align:center}
+.result-name{flex:1;font-weight:600;color:var(--navy)}
+.result-academy{font-size:.78rem;color:var(--text-3)}
+.result-score{font-family:var(--font-d);font-size:1.1rem;font-weight:700;color:var(--navy)}
+@media(max-width:700px){.tourn-detail-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body data-page="tournaments">
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="chess-hero-bg">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.06" preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 640"><defs><pattern id="cp" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="40" height="40" fill="white"/><rect x="40" y="40" width="40" height="40" fill="white"/></pattern></defs><rect width="640" height="640" fill="url(#cp)"/></svg>
+    <div style="position:absolute;right:3%;bottom:-30px;font-size:320px;opacity:.04;color:white;line-height:1;pointer-events:none">♞</div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Tournaments</span></div>
+    <h1>Tournaments & Events</h1>
+    <p>Compete, improve, and earn your FIDE rating. Our calendar features internal academy events and major open tournaments.</p>
+    <div class="tourn-hero-info">
+      <div class="tourn-hero-card"><div class="tourn-hero-val">4</div><div class="tourn-hero-key">Events in 2026</div></div>
+      <div class="tourn-hero-card"><div class="tourn-hero-val">৳1.3L+</div><div class="tourn-hero-key">Total Prize Pool</div></div>
+      <div class="tourn-hero-card"><div class="tourn-hero-val">FIDE</div><div class="tourn-hero-key">Rated Events</div></div>
+      <div class="tourn-hero-card"><div class="tourn-hero-val">All</div><div class="tourn-hero-key">Ratings Welcome</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- UPCOMING EVENTS -->
+<section class="section" style="background:var(--navy)">
+  <div class="container">
+    <div class="label" style="color:var(--gold-2)">2026 Calendar</div>
+    <h2 class="title title-white" style="margin-bottom:36px">Upcoming Tournaments</h2>
+
+    <!-- Featured -->
+    <div class="featured-tourn">
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap">
+        <div class="tourn-date" style="padding:14px 20px">
+          <div class="tourn-month">Apr</div><div class="tourn-day">12</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-d);font-size:1.6rem;font-weight:700;color:var(--white)">KnightVision Spring Open 2026</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px"><span class="badge badge-gold">🏆 Prize ৳25,000</span><span class="badge badge-green">Registration Open</span><span class="badge badge-blue">FIDE Rated</span></div>
+        </div>
+      </div>
+      <div class="tourn-detail-grid">
+        <div class="tourn-detail-item"><div class="tourn-detail-label">📍 Venue</div><div class="tourn-detail-val">KnightVision Academy Hall, Bogra</div></div>
+        <div class="tourn-detail-item"><div class="tourn-detail-label">📋 Format</div><div class="tourn-detail-val">Swiss System · 7 Rounds</div></div>
+        <div class="tourn-detail-item"><div class="tourn-detail-label">⏱ Time Control</div><div class="tourn-detail-val">90+30 (Classical)</div></div>
+        <div class="tourn-detail-item"><div class="tourn-detail-label">👥 Eligibility</div><div class="tourn-detail-val">All ratings welcome</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.75;margin-bottom:20px">Open to all rated and unrated players. Separate prize sections for Open (1800+), U1800, U1400, and Unrated. FIDE-rated for players with established ratings. Trophies for top 3 in each section plus special prizes.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="register.html" class="btn btn-gold">Register Now — ৳500 Entry</a>
+        <a href="contact.html" class="btn btn-outline-white btn-sm">Download Regulations PDF</a>
+      </div>
+    </div>
+
+    <!-- Other upcoming -->
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="tourn-item">
+        <div class="tourn-date"><div class="tourn-month">May</div><div class="tourn-day">3</div></div>
+        <div class="tourn-info"><div class="tourn-name">Junior Chess League — Round 3</div><div class="tourn-details"><span>🌐 Online (Lichess)</span><span>👥 U-16 only</span><span>♟ Rated Blitz · 9 Rounds</span><span>⏱ 3+2</span></div></div>
+        <div class="tourn-prize">৳8,000</div>
+        <span class="tourn-status status-open">Open</span>
+      </div>
+      <div class="tourn-item">
+        <div class="tourn-date"><div class="tourn-month">Jun</div><div class="tourn-day">20</div></div>
+        <div class="tourn-info"><div class="tourn-name">FIDE-Rated Classical Open — Dhaka</div><div class="tourn-details"><span>📍 Dhaka National Club</span><span>♟ Rating 1400+</span><span>📋 7 Rounds Swiss</span><span>⏱ 90+30</span></div></div>
+        <div class="tourn-prize">৳60,000</div>
+        <span class="tourn-status status-soon">Upcoming</span>
+      </div>
+      <div class="tourn-item">
+        <div class="tourn-date"><div class="tourn-month">Jul</div><div class="tourn-day">15</div></div>
+        <div class="tourn-info"><div class="tourn-name">KnightVision Annual Academy Championship</div><div class="tourn-details"><span>📍 Academy Hall, Bogra</span><span>👥 Academy students only</span><span>📋 Round Robin</span><span>🏆 Trophy + Prizes</span></div></div>
+        <div class="tourn-prize">৳40,000</div>
+        <span class="tourn-status status-soon">Upcoming</span>
+      </div>
+      <div class="tourn-item">
+        <div class="tourn-date"><div class="tourn-month">Sep</div><div class="tourn-day">8</div></div>
+        <div class="tourn-info"><div class="tourn-name">North Bengal Rapid Chess Championship</div><div class="tourn-details"><span>📍 Rajshahi City Hall</span><span>👥 All ratings</span><span>♟ Rapid 25+10</span><span>📋 9 Rounds Swiss</span></div></div>
+        <div class="tourn-prize">৳20,000</div>
+        <span class="tourn-status status-soon">Upcoming</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAST RESULTS -->
+<section class="past-results">
+  <div class="container">
+    <div class="label">Past Results</div>
+    <h2 class="title" style="margin-bottom:32px">KnightVision Spring Open 2025 — Final Results</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+      <div>
+        <h3 style="font-family:var(--font-d);font-size:1.1rem;margin-bottom:16px;color:var(--navy)">Open Section (1800+)</h3>
+        <div class="result-row"><div class="result-pos">1</div><div><div class="result-name">Kabir Islam</div><div class="result-academy">KnightVision Academy</div></div><div class="result-score">6.5/7</div></div>
+        <div class="result-row"><div class="result-pos">2</div><div><div class="result-name">Arif Hassan</div><div class="result-academy">Dhaka Chess Club</div></div><div class="result-score">6.0/7</div></div>
+        <div class="result-row"><div class="result-pos">3</div><div><div class="result-name">Dev Patel</div><div class="result-academy">KnightVision Academy</div></div><div class="result-score">5.5/7</div></div>
+        <div class="result-row"><div class="result-pos">4</div><div><div class="result-name">Sana Begum</div><div class="result-academy">KnightVision Academy</div></div><div class="result-score">5.0/7</div></div>
+        <div class="result-row"><div class="result-pos">5</div><div><div class="result-name">Rashed Khan</div><div class="result-academy">Chittagong Chess Club</div></div><div class="result-score">5.0/7</div></div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-d);font-size:1.1rem;margin-bottom:16px;color:var(--navy)">Under-1400 Section</h3>
+        <div class="result-row"><div class="result-pos">1</div><div><div class="result-name">Ananya Roy</div><div class="result-academy">KnightVision Academy</div></div><div class="result-score">7/7</div></div>
+        <div class="result-row"><div class="result-pos">2</div><div><div class="result-name">Mehedi Islam</div><div class="result-academy">KnightVision Academy</div></div><div class="result-score">5.5/7</div></div>
+        <div class="result-row"><div class="result-pos">3</div><div><div class="result-name">Fatima Khan</div><div class="result-academy">Rajshahi Chess Academy</div></div><div class="result-score">5.0/7</div></div>
+        <div class="result-row"><div class="result-pos">4</div><div><div class="result-name">Tanvir Ahmed</div><div class="result-academy">KnightVision Academy</div></div><div class="result-score">4.5/7</div></div>
+        <div class="result-row"><div class="result-pos">5</div><div><div class="result-name">Rupa Biswas</div><div class="result-academy">Bogra Junior Club</div></div><div class="result-score">4.0/7</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOURNAMENT RULES / INFO -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="label">Information</div>
+    <h2 class="title" style="margin-bottom:32px">Tournament Guidelines & FAQs</h2>
+    <div class="grid-2">
+      <div>
+        <div class="faq-item open"><div class="faq-q">How do I register for a tournament? <span class="faq-icon">+</span></div><div class="faq-a">Fill out the registration form on this site or visit the academy in person. Payment can be made via bKash, Nagad, or cash at the venue. Confirmation email sent within 24 hours.</div></div>
+        <div class="faq-item"><div class="faq-q">Are tournaments open to non-academy students? <span class="faq-icon">+</span></div><div class="faq-a">Most open tournaments welcome all players. Some internal events (like the Annual Championship) are restricted to enrolled KnightVision students.</div></div>
+        <div class="faq-item"><div class="faq-q">What rating do I need to participate? <span class="faq-icon">+</span></div><div class="faq-a">Our open events have sections for all rating ranges including unrated players. FIDE-rated sections require an established FIDE rating. Check individual event regulations.</div></div>
+        <div class="faq-item"><div class="faq-q">How are FIDE ratings calculated? <span class="faq-icon">+</span></div><div class="faq-a">FIDE ratings are updated after eligible rated tournaments. New players need to complete 5 rated games. Our team assists students in getting their initial FIDE rating.</div></div>
+      </div>
+      <div style="background:var(--navy);border-radius:var(--r-lg);padding:32px">
+        <div style="font-size:2rem;margin-bottom:16px">📋</div>
+        <h3 style="font-family:var(--font-d);font-size:1.2rem;color:var(--white);margin-bottom:12px">Standard Regulations</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:10px;font-size:.86rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2);flex-shrink:0">✓</span>FIDE Laws of Chess apply to all events</div>
+          <div style="display:flex;gap:10px;font-size:.86rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2);flex-shrink:0">✓</span>Zero tolerance rule for late arrivals</div>
+          <div style="display:flex;gap:10px;font-size:.86rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2);flex-shrink:0">✓</span>Mobile phones must be switched off during play</div>
+          <div style="display:flex;gap:10px;font-size:.86rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2);flex-shrink:0">✓</span>Arbiters' decisions are final in all disputes</div>
+          <div style="display:flex;gap:10px;font-size:.86rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2);flex-shrink:0">✓</span>Score sheets must be maintained by all players</div>
+          <div style="display:flex;gap:10px;font-size:.86rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2);flex-shrink:0">✓</span>Full entry fee refund if event is cancelled</div>
+        </div>
+        <div style="margin-top:20px"><a href="contact.html" class="btn btn-gold btn-sm">Ask a Question →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="container">
+    <h2>Ready to Compete?</h2>
+    <p>Register for our next tournament and test yourself on the competitive stage.</p>
+    <div class="cta-btns"><a href="register.html" class="btn btn-gold">Register for Spring Open</a><a href="contact.html" class="btn btn-outline-white">Tournament Queries</a></div>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+</body>
+</html>

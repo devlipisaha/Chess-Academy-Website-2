@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KnightVision Chess Academy Coaches — Meet our FIDE-certified trainers, International Masters, and chess education specialists.">
+<title>Trainers & Coaches — KnightVision Chess Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.trainers-main-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.trainer-full{background:var(--white);border:1px solid var(--gray-1);border-radius:var(--r-lg);overflow:hidden;display:grid;grid-template-columns:200px 1fr;transition:all var(--tr)}
+.trainer-full:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
+.trainer-full-portrait{background:linear-gradient(160deg,var(--navy-3),var(--navy));display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+.trainer-full-body{padding:28px}
+.trainer-rating-badge{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:var(--gold-3);font-size:.74rem;font-weight:700;padding:4px 12px;border-radius:100px;margin-bottom:10px}
+.trainer-stats-mini{display:flex;gap:16px;margin:14px 0;padding:14px 0;border-top:1px solid var(--gray-1);border-bottom:1px solid var(--gray-1)}
+.trainer-stat{text-align:center}
+.trainer-stat-n{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:var(--navy)}
+.trainer-stat-l{font-size:.68rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em}
+.specialties-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+@media(max-width:900px){.trainers-main-grid{grid-template-columns:1fr}.trainer-full{grid-template-columns:1fr}}
+@media(max-width:500px){.trainer-full-portrait{height:200px}}
+</style>
+</head>
+<body data-page="trainers">
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="chess-hero-bg">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.06" preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 640"><defs><pattern id="cp" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="40" height="40" fill="white"/><rect x="40" y="40" width="40" height="40" fill="white"/></pattern></defs><rect width="640" height="640" fill="url(#cp)"/></svg>
+    <div style="position:absolute;left:3%;bottom:-20px;font-size:320px;opacity:.04;color:white;line-height:1;pointer-events:none">♚</div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Trainers</span></div>
+    <h1>Our Coaches & Trainers</h1>
+    <p>Meet the FIDE-certified masters, educators, and chess specialists behind KnightVision's training programs.</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div style="background:var(--navy-2);padding:0 24px;border-bottom:1px solid rgba(200,149,46,.15)">
+  <div style="max-width:1160px;margin:0 auto">
+    <div class="stats-bar" style="border:none;border-radius:0;background:transparent">
+      <div class="stat-item"><div class="stat-num stat-num-white">12</div><div class="stat-label stat-label-white">Total Coaches</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">6</div><div class="stat-label stat-label-white">FIDE Titled</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">1 IM</div><div class="stat-label stat-label-white">International Master</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">2 FM</div><div class="stat-label stat-label-white">FIDE Masters</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">1 WFM</div><div class="stat-label stat-label-white">Woman FIDE Master</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- LEAD COACHES -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="label">Head Coaches</div>
+    <h2 class="title" style="margin-bottom:40px">Our Expert Training Team</h2>
+    <div class="trainers-main-grid">
+      <!-- IM Dhruv -->
+      <div class="trainer-full">
+        <div class="trainer-full-portrait">♚<div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap"><span class="badge badge-gold">IM · FIDE 2420</span></div></div>
+        <div class="trainer-full-body">
+          <div class="trainer-rating-badge">♟ International Master</div>
+          <div class="trainer-name" style="font-size:1.25rem">IM Dhruv Sharma</div>
+          <div class="trainer-title">Founder & Head Coach</div>
+          <div class="trainer-stats-mini">
+            <div class="trainer-stat"><div class="trainer-stat-n">2420</div><div class="trainer-stat-l">FIDE Rating</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">15yrs</div><div class="trainer-stat-l">Coaching</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">400+</div><div class="trainer-stat-l">Students</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">6</div><div class="trainer-stat-l">Countries</div></div>
+          </div>
+          <p class="trainer-bio">FIDE rating 2420. Former national under-20 champion of India. Trained under GM mentors in Europe before returning to South Asia to build KnightVision. Expert in Sicilian, King's Indian, and deep endgame technique.</p>
+          <div class="specialties-grid">
+            <span class="trainer-tag">♟ Sicilian Defence</span><span class="trainer-tag">📐 Endgames</span><span class="trainer-tag">🧠 Tournament Prep</span><span class="trainer-tag">🎯 Calculation</span>
+          </div>
+          <div class="trainer-socials">
+            <a href="#" class="trainer-social">f</a><a href="#" class="trainer-social">📷</a><a href="#" class="trainer-social">♟</a>
+          </div>
+        </div>
+      </div>
+      <!-- WFM Priya -->
+      <div class="trainer-full">
+        <div class="trainer-full-portrait">♛<div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap"><span class="badge badge-gold">WFM · FIDE 2050</span></div></div>
+        <div class="trainer-full-body">
+          <div class="trainer-rating-badge">♛ Woman FIDE Master</div>
+          <div class="trainer-name" style="font-size:1.25rem">WFM Priya Krishnan</div>
+          <div class="trainer-title">Junior Development Coach</div>
+          <div class="trainer-stats-mini">
+            <div class="trainer-stat"><div class="trainer-stat-n">2050</div><div class="trainer-stat-l">FIDE Rating</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">8yrs</div><div class="trainer-stat-l">Coaching</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">250+</div><div class="trainer-stat-l">Students</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">18</div><div class="trainer-stat-l">Junior Medals</div></div>
+          </div>
+          <p class="trainer-bio">Specialist in youth development chess education. Background in child psychology and pedagogy. Three-time regional women's champion. Expert in making chess fun and accessible for young learners aged 5–14.</p>
+          <div class="specialties-grid">
+            <span class="trainer-tag">🌟 Junior Development</span><span class="trainer-tag">🎮 Gamified Learning</span><span class="trainer-tag">🧩 Tactics</span><span class="trainer-tag">🧘 Mindset</span>
+          </div>
+          <div class="trainer-socials">
+            <a href="#" class="trainer-social">f</a><a href="#" class="trainer-social">📷</a><a href="#" class="trainer-social">♟</a>
+          </div>
+        </div>
+      </div>
+      <!-- FM Arjun -->
+      <div class="trainer-full">
+        <div class="trainer-full-portrait">♜<div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap"><span class="badge badge-gold">FM · FIDE 2280</span></div></div>
+        <div class="trainer-full-body">
+          <div class="trainer-rating-badge">♜ FIDE Master</div>
+          <div class="trainer-name" style="font-size:1.25rem">FM Arjun Mehta</div>
+          <div class="trainer-title">Strategy & Positional Coach</div>
+          <div class="trainer-stats-mini">
+            <div class="trainer-stat"><div class="trainer-stat-n">2280</div><div class="trainer-stat-l">FIDE Rating</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">10yrs</div><div class="trainer-stat-l">Coaching</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">3</div><div class="trainer-stat-l">Nat'l Champions</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">Online</div><div class="trainer-stat-l">Specialist</div></div>
+          </div>
+          <p class="trainer-bio">Expert in positional chess and strategic planning with a Karpov-inspired style. Known for clear, methodical teaching. Coach of three national champions. Runs all online intermediate and advanced programs.</p>
+          <div class="specialties-grid">
+            <span class="trainer-tag">📐 Positional Play</span><span class="trainer-tag">🏗️ Pawn Structures</span><span class="trainer-tag">🎯 Middlegame Strategy</span><span class="trainer-tag">💻 Online Coaching</span>
+          </div>
+          <div class="trainer-socials">
+            <a href="#" class="trainer-social">f</a><a href="#" class="trainer-social">📷</a><a href="#" class="trainer-social">♟</a>
+          </div>
+        </div>
+      </div>
+      <!-- Rahul -->
+      <div class="trainer-full">
+        <div class="trainer-full-portrait">♟<div style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap"><span class="badge badge-blue">FIDE Instructor</span></div></div>
+        <div class="trainer-full-body">
+          <div class="trainer-rating-badge">♟ FIDE Instructor</div>
+          <div class="trainer-name" style="font-size:1.25rem">Rahul Banerjee</div>
+          <div class="trainer-title">Beginner & Foundations Coach</div>
+          <div class="trainer-stats-mini">
+            <div class="trainer-stat"><div class="trainer-stat-n">1920</div><div class="trainer-stat-l">FIDE Rating</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">6yrs</div><div class="trainer-stat-l">Coaching</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">500+</div><div class="trainer-stat-l">Beginners</div></div>
+            <div class="trainer-stat"><div class="trainer-stat-n">98%</div><div class="trainer-stat-l">Satisfaction</div></div>
+          </div>
+          <p class="trainer-bio">Dedicated to making chess accessible and joyful for complete beginners. Background in gamification and learning design. Known for patience and ability to explain complex ideas in simple, memorable ways.</p>
+          <div class="specialties-grid">
+            <span class="trainer-tag">🌱 Beginners</span><span class="trainer-tag">🎮 Gamification</span><span class="trainer-tag">👶 Ages 5+</span><span class="trainer-tag">💡 Clear Explanations</span>
+          </div>
+          <div class="trainer-socials">
+            <a href="#" class="trainer-social">f</a><a href="#" class="trainer-social">📷</a><a href="#" class="trainer-social">♟</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORTING COACHES -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="label">Full Team</div>
+    <h2 class="title" style="margin-bottom:32px">Supporting Coaching Staff</h2>
+    <div class="grid-4">
+      <div class="trainer-card"><div class="trainer-portrait">♞<span class="trainer-fide-badge">FM</span></div><div class="trainer-body"><div class="trainer-name">FM Salehin Ahmed</div><div class="trainer-title">Tactics Specialist</div><div class="trainer-rating">♟ FIDE 2180</div><div class="trainer-bio">Opening and tactics expert. Runs the tactics training program for intermediate students.</div><div class="trainer-tags"><span class="trainer-tag">Tactics</span><span class="trainer-tag">Openings</span></div></div></div>
+      <div class="trainer-card"><div class="trainer-portrait">♝<span class="trainer-fide-badge">FI</span></div><div class="trainer-body"><div class="trainer-name">Nadia Chowdhury</div><div class="trainer-title">Online Class Coordinator</div><div class="trainer-rating">♟ FIDE 1750</div><div class="trainer-bio">Coordinates all online sessions and manages the digital learning platform and student experience.</div><div class="trainer-tags"><span class="trainer-tag">Online</span><span class="trainer-tag">Coordination</span></div></div></div>
+      <div class="trainer-card"><div class="trainer-portrait">♜<span class="trainer-fide-badge">FI</span></div><div class="trainer-body"><div class="trainer-name">Karim Hassan</div><div class="trainer-title">Endgame Coach</div><div class="trainer-rating">♟ FIDE 2010</div><div class="trainer-bio">Endgame and study specialist. Trains students on technical endgames and rook endings.</div><div class="trainer-tags"><span class="trainer-tag">Endgames</span><span class="trainer-tag">Technique</span></div></div></div>
+      <div class="trainer-card"><div class="trainer-portrait">♛<span class="trainer-fide-badge">FCi</span></div><div class="trainer-body"><div class="trainer-name">Tania Begum</div><div class="trainer-title">Women's Program Coach</div><div class="trainer-rating">♟ FIDE 1680</div><div class="trainer-bio">Leads the women's chess development program and mentors female students in competitive play.</div><div class="trainer-tags"><span class="trainer-tag">Women's Chess</span><span class="trainer-tag">Mentoring</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK A COACH -->
+<section class="section" style="background:var(--navy)">
+  <div class="container" style="max-width:680px;text-align:center">
+    <div class="label" style="color:var(--gold-2);justify-content:center">Work With Us</div>
+    <h2 class="title title-white" style="margin-bottom:16px">Book a Session with Your Preferred Coach</h2>
+    <p style="color:rgba(255,255,255,.65);margin-bottom:28px">Tell us your level and goals, and we'll match you with the most suitable coach from our team.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="register.html" class="btn btn-gold">Book a Free Trial</a>
+      <a href="contact.html" class="btn btn-outline-white">Request Specific Coach</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+</body>
+</html>

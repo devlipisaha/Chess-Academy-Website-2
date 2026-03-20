@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="About KnightVision Chess Academy — Our story, mission, values, and the team behind Bangladesh's premier chess academy.">
+<title>About Us — KnightVision Chess Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.value-card{padding:32px;border:1px solid var(--gray-1);border-radius:var(--r);background:var(--white);text-align:center;transition:all var(--tr)}
+.value-card:hover{transform:translateY(-5px);box-shadow:var(--sh2)}
+.value-icon{font-size:2.8rem;margin-bottom:16px}
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),var(--gold-2))}
+.tl-item{position:relative;margin-bottom:40px}
+.tl-dot{position:absolute;left:-32px;top:4px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:3px solid var(--cream)}
+.tl-year{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:4px}
+.tl-title{font-family:var(--font-d);font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.tl-text{font-size:.86rem;color:var(--text-3);line-height:1.7}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.team-mini{text-align:center;padding:24px 16px;background:var(--white);border:1px solid var(--gray-1);border-radius:var(--r);transition:all var(--tr)}
+.team-mini:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.team-mini-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--navy-3),var(--navy));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 14px;border:3px solid var(--gold-pale)}
+.team-mini-name{font-family:var(--font-d);font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.team-mini-role{font-size:.76rem;color:var(--gold);font-weight:600}
+@media(max-width:900px){.mission-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="about">
+<div id="nav-placeholder"></div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="chess-hero-bg">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.06" preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
+      <defs><pattern id="chess2" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="40" height="40" fill="white"/><rect x="40" y="40" width="40" height="40" fill="white"/></pattern></defs>
+      <rect width="640" height="640" fill="url(#chess2)"/>
+    </svg>
+    <div style="position:absolute;right:5%;bottom:-20px;font-size:340px;opacity:.04;color:white;line-height:1;pointer-events:none">♛</div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>About Us</span></div>
+    <h1>About KnightVision</h1>
+    <p>Our story, mission, values, and the passionate team behind Bangladesh's premier chess academy.</p>
+  </div>
+</div>
+
+<!-- OUR STORY -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center">
+      <div>
+        <div class="label">Our Story</div>
+        <h2 class="title" style="margin-bottom:20px">Born from a Love of Chess</h2>
+        <p style="font-size:.97rem;color:var(--text-3);line-height:1.85;margin-bottom:16px">KnightVision Chess Academy was founded in 2012 by International Master Dhruv Sharma in a small classroom in Bogra. His dream was simple: to make world-class chess education accessible to every student in Bangladesh, regardless of their background or current skill level.</p>
+        <p style="font-size:.97rem;color:var(--text-3);line-height:1.85;margin-bottom:16px">What started as a 12-student after-school club has grown into a full-fledged chess institution with over 1,400 enrolled students, 12 certified coaches, a comprehensive online platform, and a trophy cabinet filled with national and international honours.</p>
+        <p style="font-size:.97rem;color:var(--text-3);line-height:1.85;margin-bottom:28px">Today, KnightVision is recognized by the Bangladesh Chess Federation as a model academy, and our alumni compete at national and international FIDE-rated events across South Asia.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a href="trainers.html" class="btn btn-gold">Meet Our Coaches</a>
+          <a href="contact.html" class="btn btn-outline-navy">Visit the Academy</a>
+        </div>
+      </div>
+      <div>
+        <!-- Visual: decorative chess board with quote -->
+        <div style="background:var(--navy);border-radius:20px;padding:36px;text-align:center;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background-image:repeating-conic-gradient(rgba(255,255,255,.03) 0% 25%,transparent 0% 50%);background-size:50px 50px"></div>
+          <div id="about-mini-board" style="max-width:280px;margin:0 auto 24px;border-radius:6px;overflow:hidden"></div>
+          <blockquote style="font-family:var(--font-d);font-size:1.05rem;font-style:italic;color:rgba(255,255,255,.82);line-height:1.7">
+            "Chess is not just a game. It is a mirror of the mind — it shows you who you truly are."
+          </blockquote>
+          <cite style="display:block;margin-top:12px;font-size:.8rem;color:var(--gold-2);font-style:normal">— IM Dhruv Sharma, Founder</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div style="background:var(--navy-2);padding:0 24px">
+  <div style="max-width:1160px;margin:0 auto">
+    <div class="stats-bar" style="border:none;border-radius:0;background:transparent">
+      <div class="stat-item"><div class="stat-num stat-num-white">2012</div><div class="stat-label stat-label-white">Founded</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">1,400+</div><div class="stat-label stat-label-white">Students Trained</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">12</div><div class="stat-label stat-label-white">Expert Coaches</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">32</div><div class="stat-label stat-label-white">National Medalists</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">6</div><div class="stat-label stat-label-white">FIDE Titled Staff</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MISSION / VISION / VALUES -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="sec-header sec-header-center">
+      <div class="label">Mission & Values</div>
+      <h2 class="title" style="margin-bottom:12px">What Drives Us Every Day</h2>
+    </div>
+    <div class="mission-grid" style="margin-top:48px">
+      <div class="value-card">
+        <div class="value-icon">🎯</div>
+        <h3 class="card-title">Our Mission</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">To deliver world-class chess education that is accessible, structured, and transformative — developing not just chess skills but life skills including discipline, critical thinking, and resilience.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔭</div>
+        <h3 class="card-title">Our Vision</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">To be South Asia's leading chess academy — producing FIDE-rated players, national champions, and lifelong lovers of the game who carry the values of chess into every aspect of their lives.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💎</div>
+        <h3 class="card-title">Our Values</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">Excellence in coaching. Integrity on and off the board. Inclusivity for all ages and backgrounds. Continuous improvement through rigorous self-analysis. Respect for opponents and teammates alike.</p>
+      </div>
+    </div>
+    <!-- Additional values icons row -->
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:32px;text-align:center">
+      <div style="padding:20px 10px"><div style="font-size:2rem;margin-bottom:8px">🏅</div><div style="font-size:.78rem;font-weight:600;color:var(--navy)">Excellence</div></div>
+      <div style="padding:20px 10px"><div style="font-size:2rem;margin-bottom:8px">🤝</div><div style="font-size:.78rem;font-weight:600;color:var(--navy)">Integrity</div></div>
+      <div style="padding:20px 10px"><div style="font-size:2rem;margin-bottom:8px">🌍</div><div style="font-size:.78rem;font-weight:600;color:var(--navy)">Inclusivity</div></div>
+      <div style="padding:20px 10px"><div style="font-size:2rem;margin-bottom:8px">📈</div><div style="font-size:.78rem;font-weight:600;color:var(--navy)">Growth</div></div>
+      <div style="padding:20px 10px"><div style="font-size:2rem;margin-bottom:8px">🧘</div><div style="font-size:.78rem;font-weight:600;color:var(--navy)">Discipline</div></div>
+      <div style="padding:20px 10px"><div style="font-size:2rem;margin-bottom:8px">❤️</div><div style="font-size:.78rem;font-weight:600;color:var(--navy)">Passion</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start">
+      <div>
+        <div class="label">Our Journey</div>
+        <h2 class="title" style="margin-bottom:36px">A Decade of Growth</h2>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2012</div><div class="tl-title">Academy Founded</div><div class="tl-text">IM Dhruv Sharma opens KnightVision with 12 students in Bogra.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2014</div><div class="tl-title">First National Medal</div><div class="tl-text">Student Rohan Gupta wins silver at the National Under-16 Championship.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2016</div><div class="tl-title">New Academy Premises</div><div class="tl-text">Moved to a dedicated 3,000 sq ft facility with 40 training boards.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2018</div><div class="tl-title">500 Students Milestone</div><div class="tl-text">Expanded coaching team and launched the Junior Chess Club for ages 5–10.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2020</div><div class="tl-title">Online Platform Launch</div><div class="tl-text">Launched live online classes during the pandemic — reached students across Bangladesh.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022</div><div class="tl-title">FIDE Affiliated Academy</div><div class="tl-text">Officially recognized by the Bangladesh Chess Federation as a model development academy.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2024</div><div class="tl-title">National Champions</div><div class="tl-text">Ananya Roy wins the National U-14 Championship — our first national gold medalist.</div></div>
+          <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2026</div><div class="tl-title">1,400+ Students</div><div class="tl-text">New website, expanded online programs, and GM Mentorship program launched.</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="label">The Team</div>
+        <h2 class="title" style="margin-bottom:32px">Leadership & Coaching Staff</h2>
+        <div class="team-grid">
+          <div class="team-mini"><div class="team-mini-avatar">♚</div><div class="team-mini-name">IM Dhruv Sharma</div><div class="team-mini-role">Founder & Head Coach</div></div>
+          <div class="team-mini"><div class="team-mini-avatar">♛</div><div class="team-mini-name">WFM Priya Krishnan</div><div class="team-mini-role">Junior Coach</div></div>
+          <div class="team-mini"><div class="team-mini-avatar">♜</div><div class="team-mini-name">FM Arjun Mehta</div><div class="team-mini-role">Strategy Coach</div></div>
+          <div class="team-mini"><div class="team-mini-avatar">♝</div><div class="team-mini-name">Rahul Banerjee</div><div class="team-mini-role">Beginners Coach</div></div>
+          <div class="team-mini"><div class="team-mini-avatar">♞</div><div class="team-mini-name">Nadia Chowdhury</div><div class="team-mini-role">Online Coordinator</div></div>
+          <div class="team-mini"><div class="team-mini-avatar">♟</div><div class="team-mini-name">Sayed Hossain</div><div class="team-mini-role">Admin Director</div></div>
+        </div>
+        <div style="margin-top:24px"><a href="trainers.html" class="btn btn-gold">Meet All Coaches →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATIONS -->
+<section class="section-sm" style="background:var(--navy)">
+  <div class="container">
+    <div class="sec-header-center" style="text-align:center;margin-bottom:32px">
+      <div class="label" style="color:var(--gold-2);justify-content:center">Affiliations & Recognition</div>
+      <h3 style="font-family:var(--font-d);font-size:1.4rem;color:var(--white)">Recognized by Leading Organizations</h3>
+    </div>
+    <div style="display:flex;justify-content:center;gap:32px;flex-wrap:wrap">
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px 32px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:8px">♟</div>
+        <div style="font-size:.82rem;font-weight:600;color:rgba(255,255,255,.8)">FIDE</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.4)">International Chess Federation</div>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px 32px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:8px">🇧🇩</div>
+        <div style="font-size:.82rem;font-weight:600;color:rgba(255,255,255,.8)">Bangladesh Chess Federation</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.4)">Affiliated Academy</div>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px 32px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:8px">🏛️</div>
+        <div style="font-size:.82rem;font-weight:600;color:rgba(255,255,255,.8)">Rajshahi Division</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.4)">Chess Association Member</div>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px 32px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:8px">🎓</div>
+        <div style="font-size:.82rem;font-weight:600;color:rgba(255,255,255,.8)">FIDE Trainer Program</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.4)">Certified Instructors</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="container">
+    <h2>Join Our Growing Community</h2>
+    <p>Be part of a legacy that has produced 32 national medalists and counting.</p>
+    <div class="cta-btns">
+      <a href="register.html" class="btn btn-gold">Enroll Today</a>
+      <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
+    </div>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>buildChessBoard('about-mini-board',false);</script>
+</body>
+</html>

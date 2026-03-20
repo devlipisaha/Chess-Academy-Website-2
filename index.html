@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KnightVision Chess Academy — World-class chess training for all ages. FIDE-certified coaches, structured programs, online and offline classes in Bogra, Bangladesh.">
+<meta name="keywords" content="chess academy Bangladesh, chess classes Bogra, chess training, FIDE rated, online chess coaching">
+<meta property="og:title" content="KnightVision Chess Academy — Master the Game">
+<meta property="og:description" content="Join 1,400+ students at KnightVision. FIDE coaches, structured programs, tournaments.">
+<title>KnightVision Chess Academy — Master the Game. Build the Mind.</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* HOME-SPECIFIC */
+.hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(200,149,46,.14); border:1px solid rgba(200,149,46,.35); color:var(--gold-2); font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:6px 16px; border-radius:100px; margin-bottom:20px; }
+.hero-stats-row { display:flex; gap:32px; margin-top:36px; padding-top:28px; border-top:1px solid rgba(255,255,255,.1); flex-wrap:wrap; }
+.hs { }
+.hs-num { font-family:var(--font-d); font-size:1.9rem; font-weight:900; color:var(--white); }
+.hs-label { font-size:.72rem; color:rgba(255,255,255,.45); text-transform:uppercase; letter-spacing:.08em; }
+
+/* WHY SECTION */
+.why-section { background:var(--white); }
+.why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.why-card { padding:30px; border:1px solid var(--gray-1); border-radius:var(--r); background:var(--white); transition:all var(--tr); position:relative; overflow:hidden; }
+.why-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold-2)); transform:scaleX(0); transform-origin:left; transition:transform var(--tr); }
+.why-card:hover { transform:translateY(-5px); box-shadow:var(--sh2); }
+.why-card:hover::after { transform:scaleX(1); }
+.why-icon { width:58px; height:58px; border-radius:16px; background:var(--gold-pale); display:flex; align-items:center; justify-content:center; font-size:26px; margin-bottom:18px; }
+
+/* FEATURES SPLIT */
+.feature-split { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+.feature-visual { position:relative; }
+.feature-board-wrap { position:relative; }
+.floating-badge {
+  position:absolute; background:var(--white); border:1px solid var(--gray-1); border-radius:12px;
+  padding:12px 18px; box-shadow:var(--sh2); font-size:.82rem; font-weight:600; color:var(--navy);
+  white-space:nowrap; display:flex; align-items:center; gap:8px; z-index:10;
+}
+.floating-badge.top-left { top:-24px; left:-20px; }
+.floating-badge.bottom-right { bottom:-20px; right:-20px; }
+.floating-badge.top-right { top:20px; right:-30px; }
+
+/* POPULAR COURSES STRIP */
+.courses-section { background:var(--navy); }
+.courses-header-flex { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:16px; }
+.courses-grid-home { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+@media(max-width:900px){.courses-grid-home{grid-template-columns:1fr;} .why-grid{grid-template-columns:1fr;} .feature-split{grid-template-columns:1fr;} }
+
+/* ONLINE CLASSES HIGHLIGHT */
+.online-highlight { background:linear-gradient(135deg,var(--navy-3),var(--navy-2)); border:1px solid rgba(200,149,46,.2); border-radius:20px; padding:48px; display:grid; grid-template-columns:1fr auto; gap:40px; align-items:center; margin-top:40px; }
+.online-highlight-icon { font-size:5rem; opacity:.6; }
+@media(max-width:700px){.online-highlight{grid-template-columns:1fr;} .online-highlight-icon{display:none;} }
+
+/* TESTIMONIAL SECTION */
+.testi-section { background:var(--navy); }
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+
+/* PROCESS */
+.process-section { background:var(--cream); }
+</style>
+</head>
+<body data-page="home">
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="chess-hero-bg">
+    <!-- Chess board pattern overlay -->
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.07" preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
+      <defs><pattern id="chess" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="40" height="40" fill="white"/><rect x="40" y="40" width="40" height="40" fill="white"/></pattern></defs>
+      <rect width="640" height="640" fill="url(#chess)"/>
+    </svg>
+    <!-- Giant piece silhouette -->
+    <div style="position:absolute;right:-60px;bottom:-40px;font-size:420px;opacity:.04;line-height:1;color:white;user-select:none;pointer-events:none">♚</div>
+    <div style="position:absolute;left:-40px;top:60px;font-size:220px;opacity:.03;line-height:1;color:white;user-select:none;pointer-events:none">♟</div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-grid">
+    <div class="anim-1">
+      <div class="hero-badge">♟ World-Class Chess Training Since 2012</div>
+      <h1 class="display" style="margin-bottom:20px">Master the Game.<br><em>Build the Mind.</em></h1>
+      <p style="font-size:1.05rem;color:rgba(255,255,255,.68);max-width:480px;line-height:1.8;margin-bottom:32px">Join KnightVision Chess Academy — where FIDE-certified coaching, structured curriculum, and real tournament experience forge champions at every level.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="register.html" class="btn btn-gold" style="font-size:1rem;padding:14px 32px">♟ Start Free Trial</a>
+        <a href="courses.html" class="btn btn-outline-white" style="padding:14px 32px">Explore Courses →</a>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hs"><div class="hs-num">1,400+</div><div class="hs-label">Students Trained</div></div>
+        <div style="width:1px;background:rgba(255,255,255,.1)"></div>
+        <div class="hs"><div class="hs-num">48</div><div class="hs-label">Tournament Wins</div></div>
+        <div style="width:1px;background:rgba(255,255,255,.1)"></div>
+        <div class="hs"><div class="hs-num">12</div><div class="hs-label">Expert Coaches</div></div>
+        <div style="width:1px;background:rgba(255,255,255,.1)"></div>
+        <div class="hs"><div class="hs-num">98%</div><div class="hs-label">Satisfaction Rate</div></div>
+      </div>
+    </div>
+    <div class="anim-3" style="display:flex;justify-content:center;position:relative">
+      <div class="feature-board-wrap" style="width:100%;max-width:420px">
+        <div id="hero-board"></div>
+        <div class="floating-badge top-left">🏆 48 Tournament Victories</div>
+        <div class="floating-badge bottom-right">⭐ FIDE Certified Coaches</div>
+        <div class="floating-badge top-right">📍 Bogra, Bangladesh</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div style="background:var(--navy-2);padding:0 24px;border-bottom:1px solid rgba(200,149,46,.15)">
+  <div style="max-width:1160px;margin:0 auto">
+    <div class="stats-bar" style="border:none;border-radius:0;background:transparent">
+      <div class="stat-item"><div class="stat-num stat-num-white">FIDE</div><div class="stat-label stat-label-white">Certified Academy</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">6</div><div class="stat-label stat-label-white">Titled Coaches</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">32</div><div class="stat-label stat-label-white">National Medalists</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">2 sec</div><div class="stat-label stat-label-white">Page Load Target</div></div>
+      <div class="stat-item"><div class="stat-num stat-num-white">Online</div><div class="stat-label stat-label-white">Classes Available</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY CHOOSE US -->
+<section class="section why-section">
+  <div class="container">
+    <div class="sec-header sec-header-center">
+      <div class="label">Why KnightVision</div>
+      <h2 class="title" style="margin-bottom:12px">Everything You Need to Excel</h2>
+      <p class="subtitle">From your first pawn move to your first FIDE rating — we've built the complete ecosystem for chess growth.</p>
+    </div>
+    <div class="why-grid" style="margin-top:48px">
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <h3 class="card-title">FIDE-Certified Coaches</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">Our team includes International Masters, FIDE Masters, and Woman FIDE Masters with decades of competitive and teaching experience.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💻</div>
+        <h3 class="card-title">Online & In-Person</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">Join live sessions via Zoom or visit our physical academy in Bogra. Both formats offer full coaching, game analysis, and feedback.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <h3 class="card-title">Progress Dashboard</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">Track your rating growth, completed lessons, tournament results, and coach feedback — all in one personalized student portal.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <h3 class="card-title">Tournament Pipeline</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">Regular internal tournaments plus preparation and entry support for national and FIDE-rated events across Bangladesh.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">👨‍👩‍👧</div>
+        <h3 class="card-title">All Ages & Levels</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">Specialized programs for children aged 5+, teens, adults, and senior players. We welcome complete beginners to 2000+ rated players.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🧠</div>
+        <h3 class="card-title">Mental Skills Coaching</h3>
+        <p style="font-size:.88rem;color:var(--text-3);line-height:1.75">Beyond tactics — we develop concentration, time management, tournament psychology, and resilience that transfer to every area of life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section process-section">
+  <div class="container">
+    <div class="sec-header sec-header-center">
+      <div class="label">Your Journey</div>
+      <h2 class="title" style="margin-bottom:12px">From First Move to Champion</h2>
+      <p class="subtitle">A four-step path designed to accelerate your chess growth at every stage.</p>
+    </div>
+    <div class="steps" style="margin-top:56px">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Free Assessment</div>
+        <div class="step-text">Complete our skill evaluation — online or in-person — to identify your current level and the perfect program for your goals.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Custom Plan</div>
+        <div class="step-text">Receive a personalized curriculum built around your strengths, areas to improve, schedule, and competitive ambitions.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Expert Coaching</div>
+        <div class="step-text">Train with titled coaches through live sessions, annotated game analysis, opening prep, and structured exercises.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Compete & Grow</div>
+        <div class="step-text">Enter tournaments, earn your FIDE rating, and celebrate milestones with our full community of chess players.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="register.html" class="btn btn-gold">Get Started Free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED COURSES -->
+<section class="section courses-section">
+  <div class="container">
+    <div class="courses-header-flex">
+      <div>
+        <div class="label" style="color:var(--gold-2)">Our Programs</div>
+        <h2 class="title title-white">Popular Courses</h2>
+      </div>
+      <a href="courses.html" class="btn btn-outline-white btn-sm">View All 6 Courses →</a>
+    </div>
+    <div class="courses-grid-home">
+      <!-- Beginner -->
+      <div class="course-card">
+        <div class="course-top">
+          <div class="course-icon">♟</div>
+          <span class="course-level level-beginner">Beginner</span>
+          <div class="course-name">Chess Foundations</div>
+          <div class="course-desc">Learn piece movement, checkmates, opening principles, and game rules in a structured, enjoyable environment.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span> Piece movements & rules</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> Basic checkmates & tactics</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> Opening fundamentals</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> Game analysis sessions</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 12 Weeks</span><span class="course-meta-tag">👥 Max 8</span><span class="course-meta-tag">🕐 2hr/week</span></div>
+          <div class="course-price">৳3,500 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Enroll Now</button>
+        </div>
+      </div>
+      <!-- Intermediate - featured -->
+      <div class="course-card featured" style="position:relative">
+        <div class="popular-tag">Most Popular</div>
+        <div class="course-top">
+          <div class="course-icon">♜</div>
+          <span class="course-level level-intermediate">Intermediate</span>
+          <div class="course-name">Tactical Mastery</div>
+          <div class="course-desc">Deep-dive into tactics, opening repertoire, middlegame strategy, and endgame technique for developing players.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span> 600+ tactical puzzles</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> Opening repertoire building</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> Endgame fundamentals</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> Weekly live game analysis</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 16 Weeks</span><span class="course-meta-tag">👥 Max 6</span><span class="course-meta-tag">🕐 3hr/week</span></div>
+          <div class="course-price">৳5,500 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Enroll Now</button>
+        </div>
+      </div>
+      <!-- Advanced -->
+      <div class="course-card">
+        <div class="course-top">
+          <div class="course-icon">♚</div>
+          <span class="course-level level-advanced">Advanced</span>
+          <div class="course-name">Tournament Preparation</div>
+          <div class="course-desc">Intensive coaching for competitive players targeting FIDE ratings. Game analysis, opening prep, and mental training.</div>
+          <div class="course-features">
+            <div class="course-feat"><span class="feat-icon">✓</span> Deep opening preparation</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> Computer-assisted analysis</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> Tournament psychology</div>
+            <div class="course-feat"><span class="feat-icon">✓</span> FIDE rating support</div>
+          </div>
+        </div>
+        <div class="course-divider"></div>
+        <div class="course-bottom">
+          <div class="course-meta-tags"><span class="course-meta-tag">📅 Ongoing</span><span class="course-meta-tag">👥 Small Group</span><span class="course-meta-tag">🕐 5hr/week</span></div>
+          <div class="course-price">৳9,500 <small>/month</small></div>
+          <button class="btn-course-enroll" onclick="location.href='register.html'">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Online class highlight -->
+    <div class="online-highlight">
+      <div>
+        <div class="label" style="color:var(--gold-2)">Live Online</div>
+        <h3 style="font-family:var(--font-d);font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:12px">Can't Make It In Person?</h3>
+        <p style="color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.8;margin-bottom:24px;max-width:500px">Our online live classes offer the same FIDE-certified coaching experience via video call — complete with game review, puzzle platforms, and weekly coaching sessions.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="online-classes.html" class="btn btn-gold">Explore Online Classes</a>
+          <a href="register.html" class="btn btn-outline-white">Book Free Demo</a>
+        </div>
+      </div>
+      <div class="online-highlight-icon">🌐</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE SPLIT: ABOUT SNIPPET -->
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="feature-split">
+      <div>
+        <div class="label">About The Academy</div>
+        <h2 class="title" style="margin-bottom:20px">Where Champions Are Forged Since 2012</h2>
+        <p style="font-size:.97rem;color:var(--text-3);line-height:1.85;margin-bottom:16px">Founded in Bogra, Bangladesh, KnightVision Chess Academy has grown from a small club into one of the region's most respected chess institutions, producing national champions and FIDE-rated players year after year.</p>
+        <p style="font-size:.97rem;color:var(--text-3);line-height:1.85;margin-bottom:28px">Our philosophy combines rigorous technique with creative freedom — the hallmarks of every great chess player.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px">
+          <div style="padding:16px;background:var(--white);border:1px solid var(--gray-1);border-radius:10px;border-left:3px solid var(--gold)">
+            <div style="font-family:var(--font-d);font-size:1.7rem;font-weight:900;color:var(--navy)">12+</div>
+            <div style="font-size:.78rem;color:var(--text-3)">Years of excellence</div>
+          </div>
+          <div style="padding:16px;background:var(--white);border:1px solid var(--gray-1);border-radius:10px;border-left:3px solid var(--gold)">
+            <div style="font-family:var(--font-d);font-size:1.7rem;font-weight:900;color:var(--navy)">6</div>
+            <div style="font-size:.78rem;color:var(--text-3)">FIDE titled coaches</div>
+          </div>
+          <div style="padding:16px;background:var(--white);border:1px solid var(--gray-1);border-radius:10px;border-left:3px solid var(--gold)">
+            <div style="font-family:var(--font-d);font-size:1.7rem;font-weight:900;color:var(--navy)">32</div>
+            <div style="font-size:.78rem;color:var(--text-3)">National medalists</div>
+          </div>
+          <div style="padding:16px;background:var(--white);border:1px solid var(--gray-1);border-radius:10px;border-left:3px solid var(--gold)">
+            <div style="font-family:var(--font-d);font-size:1.7rem;font-weight:900;color:var(--navy)">98%</div>
+            <div style="font-size:.78rem;color:var(--text-3)">Student satisfaction</div>
+          </div>
+        </div>
+        <a href="about.html" class="btn btn-outline-navy">Learn Our Story →</a>
+      </div>
+      <div class="feature-visual">
+        <!-- Chess board visual with decoration -->
+        <div style="position:relative;padding:20px">
+          <div id="about-board" style="border-radius:8px;overflow:hidden;box-shadow:var(--sh2)"></div>
+          <div style="position:absolute;top:-16px;left:-16px;background:var(--gold);color:var(--navy);padding:12px 20px;border-radius:12px;font-family:var(--font-d);font-size:.9rem;font-weight:700;box-shadow:var(--sh)">♟ FIDE Certified</div>
+          <div style="position:absolute;bottom:-16px;right:-16px;background:var(--navy);color:var(--white);padding:12px 20px;border-radius:12px;font-size:.82rem;font-weight:600;box-shadow:var(--sh)">📍 Bogra, Bangladesh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testi-section">
+  <div class="container">
+    <div class="sec-header sec-header-center">
+      <div class="label" style="color:var(--gold-2)">Testimonials</div>
+      <h2 class="title title-white" style="margin-bottom:12px">What Our Students Say</h2>
+      <p class="subtitle subtitle-white">Real results, real stories from our growing community of chess players.</p>
+    </div>
+    <div class="testi-grid" style="margin-top:48px">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"KnightVision transformed my daughter from a complete beginner to a district champion in just 14 months. The coaches here are extraordinary — patient, expert, and genuinely invested in each child's success."</p>
+        <div class="testi-author"><div class="avatar">SR</div><div><div class="author-name">Sumaiya Rahman</div><div class="author-role">Parent · Enrolled since 2023</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"I joined as a casual player with no rating. After 8 months of intensive training at KnightVision, I achieved FIDE 1650 and won my first open tournament. The structured approach made all the difference."</p>
+        <div class="testi-author"><div class="avatar">KI</div><div><div class="author-name">Kabir Islam</div><div class="author-role">Student · FIDE Rated 1650</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">"The online classes are just as effective as in-person. IM Dhruv's explanations are crystal clear, and the weekly puzzle sets keep my kids engaged all week. Highly recommend to any parent!"</p>
+        <div class="testi-author"><div class="avatar">MH</div><div><div class="author-name">Mohammed Hossain</div><div class="author-role">Parent · Two children enrolled</div></div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="testimonials.html" class="btn btn-outline-white btn-sm">Read All Reviews →</a>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST FROM BLOG -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px">
+      <div><div class="label">Learning Resources</div><h2 class="title">Latest from the Blog</h2></div>
+      <a href="blog.html" class="btn btn-outline-navy btn-sm">All Articles →</a>
+    </div>
+    <div class="grid-3">
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#0A1628,#1A3160)">
+          <div class="blog-thumb-bg"></div>
+          <span style="font-size:3.5rem;position:relative;z-index:1">♜</span>
+          <div class="blog-cat-pill">Strategy</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>📅 March 15, 2026</span><span>👤 IM Dhruv</span><span>⏱ 6 min</span></div>
+          <div class="blog-title">5 Endgame Positions Every Club Player Must Know</div>
+          <div class="blog-exc">Mastering these fundamental endgame positions will save you crucial points and sharpen your overall technique...</div>
+          <a href="blog.html" class="blog-link">Read Article →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#1A3160,#122040)">
+          <div class="blog-thumb-bg"></div>
+          <span style="font-size:3.5rem;position:relative;z-index:1">♛</span>
+          <div class="blog-cat-pill">Openings</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>📅 March 8, 2026</span><span>👤 FM Arjun</span><span>⏱ 8 min</span></div>
+          <div class="blog-title">Why the London System is Perfect for Beginners in 2026</div>
+          <div class="blog-exc">Solid structure, minimal memorization, and consistent strategic play — ideal for developing players at any level...</div>
+          <a href="blog.html" class="blog-link">Read Article →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background:linear-gradient(135deg,#122040,#0A1628)">
+          <div class="blog-thumb-bg"></div>
+          <span style="font-size:3.5rem;position:relative;z-index:1">🏆</span>
+          <div class="blog-cat-pill">Competition</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta"><span>📅 Feb 28, 2026</span><span>👤 WFM Priya</span><span>⏱ 5 min</span></div>
+          <div class="blog-title">How to Prepare Mentally for Your First Tournament</div>
+          <div class="blog-exc">Tournament chess is as much about psychology as skill. Here's our complete mental preparation checklist...</div>
+          <a href="blog.html" class="blog-link">Read Article →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="container">
+    <div style="font-size:3rem;margin-bottom:12px">♚</div>
+    <h2>Ready to Make Your First Move?</h2>
+    <p>Join 1,400+ students who chose KnightVision to transform their chess journey. First trial lesson is completely free.</p>
+    <div class="cta-btns">
+      <a href="register.html" class="btn btn-gold" style="font-size:1rem;padding:14px 32px">♟ Register Free Trial</a>
+      <a href="contact.html" class="btn btn-outline-white" style="padding:14px 32px">Contact Us →</a>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+  buildChessBoard('hero-board', true);
+  buildChessBoard('about-board', false);
+</script>
+</body>
+</html>

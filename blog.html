@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="KnightVision Chess Academy Blog — Chess strategy guides, opening theory, endgame lessons, tournament prep, and learning resources from our FIDE coaches.">
+<title>Blog & Learning Resources — KnightVision Chess Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.blog-layout{display:grid;grid-template-columns:1fr 320px;gap:40px;align-items:start}
+.blog-main-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.blog-sidebar{display:flex;flex-direction:column;gap:20px;position:sticky;top:90px}
+.sidebar-widget{background:var(--white);border:1px solid var(--gray-1);border-radius:var(--r);padding:22px}
+.sidebar-widget h4{font-family:var(--font-d);font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gray-1)}
+.cat-tag{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;border:1px solid var(--gray-1);font-size:.78rem;font-weight:600;color:var(--text-2);margin:4px;cursor:pointer;transition:all var(--tr)}
+.cat-tag:hover{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.popular-post{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--gray-1)}
+.popular-post:last-child{border-bottom:none}
+.popular-post-num{font-family:var(--font-d);font-size:1.2rem;font-weight:900;color:var(--gold);flex-shrink:0;width:24px}
+.popular-post-title{font-size:.83rem;font-weight:600;color:var(--navy);line-height:1.4}
+.popular-post-meta{font-size:.72rem;color:var(--text-3);margin-top:3px}
+.featured-post-card{grid-column:span 2;background:var(--navy);border-radius:var(--r-lg);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.featured-post-img{background:linear-gradient(135deg,var(--navy-3),var(--navy-2));display:flex;align-items:center;justify-content:center;font-size:6rem;position:relative;min-height:280px}
+.featured-post-body{padding:36px}
+@media(max-width:1000px){.blog-layout{grid-template-columns:1fr}.blog-sidebar{position:static}.featured-post-card{grid-template-columns:1fr}.featured-post-img{min-height:160px}}
+@media(max-width:600px){.blog-main-grid{grid-template-columns:1fr}.featured-post-card{grid-column:span 1}}
+</style>
+</head>
+<body data-page="blog">
+<div id="nav-placeholder"></div>
+
+<div class="page-hero">
+  <div class="chess-hero-bg">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.06" preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 640"><defs><pattern id="cp" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="40" height="40" fill="white"/><rect x="40" y="40" width="40" height="40" fill="white"/></pattern></defs><rect width="640" height="640" fill="url(#cp)"/></svg>
+    <div style="position:absolute;right:3%;bottom:-20px;font-size:340px;opacity:.04;color:white;line-height:1;pointer-events:none">📖</div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Blog</span></div>
+    <h1>Blog & Learning Resources</h1>
+    <p>Chess strategy guides, opening theory, endgame lessons, tournament preparation, and insights from our FIDE-certified coaches.</p>
+  </div>
+</div>
+
+<section class="section" style="background:var(--cream)">
+  <div class="container">
+    <div class="blog-layout">
+      <div>
+        <!-- Category filters -->
+        <div style="margin-bottom:28px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">
+          <span style="font-size:.8rem;font-weight:700;color:var(--text-3);margin-right:8px">Filter:</span>
+          <span class="cat-tag" style="background:var(--navy);color:var(--white);border-color:var(--navy)">All</span>
+          <span class="cat-tag">Strategy</span><span class="cat-tag">Openings</span><span class="cat-tag">Endgames</span><span class="cat-tag">Tactics</span><span class="cat-tag">Tournament Prep</span><span class="cat-tag">For Kids</span><span class="cat-tag">History</span>
+        </div>
+        <div class="blog-main-grid">
+          <!-- Featured -->
+          <div class="featured-post-card">
+            <div class="featured-post-img">
+              <div style="position:absolute;inset:0;background-image:repeating-conic-gradient(rgba(255,255,255,.04) 0% 25%,transparent 0% 50%);background-size:40px 40px"></div>
+              <span style="position:relative;z-index:1">♜</span>
+            </div>
+            <div class="featured-post-body">
+              <span class="badge badge-gold" style="margin-bottom:14px">Featured · Strategy</span>
+              <div style="font-family:var(--font-d);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.3">The 5 Endgame Positions Every Club Player Must Know</div>
+              <div style="font-size:.84rem;color:rgba(255,255,255,.62);line-height:1.75;margin-bottom:16px">Mastering these fundamental endgame positions will save you crucial points in tournament games and sharpen your overall technique. We cover King and Rook vs King, Lucena, Philidor, and more...</div>
+              <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+                <div style="font-size:.76rem;color:rgba(255,255,255,.45)">📅 March 15, 2026 &nbsp;|&nbsp; 👤 IM Dhruv Sharma &nbsp;|&nbsp; ⏱ 8 min read</div>
+              </div>
+              <a href="#" class="btn btn-gold btn-sm" style="margin-top:14px;display:inline-flex">Read Article →</a>
+            </div>
+          </div>
+          <!-- Regular posts -->
+          <div class="blog-card">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#1A3160,#0A1628)"><div class="blog-thumb-bg"></div><span style="position:relative;z-index:1;font-size:3.5rem">♛</span><div class="blog-cat-pill">Openings</div></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span>📅 Mar 8, 2026</span><span>👤 FM Arjun</span><span>⏱ 8 min</span></div>
+              <div class="blog-title">Why the London System is Perfect for Beginners in 2026</div>
+              <div class="blog-exc">Solid structure, minimal memorization, consistent strategic themes — ideal for players who want reliable results without 20 moves of theory...</div>
+              <a href="#" class="blog-link">Read Article →</a>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#122040,#1A3160)"><div class="blog-thumb-bg"></div><span style="position:relative;z-index:1;font-size:3.5rem">🏆</span><div class="blog-cat-pill">Tournament</div></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span>📅 Feb 28, 2026</span><span>👤 WFM Priya</span><span>⏱ 5 min</span></div>
+              <div class="blog-title">How to Prepare Mentally for Your First Tournament</div>
+              <div class="blog-exc">Tournament chess demands as much mental strength as tactical skill. Here's our complete checklist for first-time competitors...</div>
+              <a href="#" class="blog-link">Read Article →</a>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#0A1628,#152C52)"><div class="blog-thumb-bg"></div><span style="position:relative;z-index:1;font-size:3.5rem">🧒</span><div class="blog-cat-pill">For Kids</div></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span>📅 Feb 15, 2026</span><span>👤 Rahul Banerjee</span><span>⏱ 4 min</span></div>
+              <div class="blog-title">Teaching Chess to Children: A Parent's Complete Guide</div>
+              <div class="blog-exc">Should your child learn chess? At what age? Which resources work best? Everything parents need to know about getting kids started...</div>
+              <a href="#" class="blog-link">Read Article →</a>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#1A3160,#122040)"><div class="blog-thumb-bg"></div><span style="position:relative;z-index:1;font-size:3.5rem">⚡</span><div class="blog-cat-pill">Tactics</div></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span>📅 Jan 30, 2026</span><span>👤 FM Arjun</span><span>⏱ 6 min</span></div>
+              <div class="blog-title">Mastering the Pin: The Most Powerful Chess Tactic</div>
+              <div class="blog-exc">The pin is one of the most powerful and common tactical motifs in chess. Learn to recognize, create, and exploit pins in your games...</div>
+              <a href="#" class="blog-link">Read Article →</a>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-thumb" style="background:linear-gradient(135deg,#0A1628,#1A3160)"><div class="blog-thumb-bg"></div><span style="position:relative;z-index:1;font-size:3.5rem">📜</span><div class="blog-cat-pill">History</div></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span>📅 Jan 20, 2026</span><span>👤 IM Dhruv</span><span>⏱ 10 min</span></div>
+              <div class="blog-title">Bobby Fischer's 10 Greatest Chess Games of All Time</div>
+              <div class="blog-exc">Fischer's genius reshaped modern chess. We walk through his ten most memorable masterpieces with annotations and key moments...</div>
+              <a href="#" class="blog-link">Read Article →</a>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:32px"><button class="btn btn-outline-navy">Load More Articles</button></div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="blog-sidebar">
+        <div class="sidebar-widget">
+          <h4>🔍 Search Articles</h4>
+          <input type="text" class="form-input-light" placeholder="Search articles...">
+        </div>
+        <div class="sidebar-widget">
+          <h4>📂 Categories</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span class="cat-tag">Strategy (12)</span><span class="cat-tag">Openings (8)</span><span class="cat-tag">Endgames (7)</span><span class="cat-tag">Tactics (9)</span><span class="cat-tag">Tournament (5)</span><span class="cat-tag">For Kids (6)</span><span class="cat-tag">History (4)</span><span class="cat-tag">Interview (3)</span>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <h4>🔥 Popular Posts</h4>
+          <div class="popular-post"><div class="popular-post-num">1</div><div><div class="popular-post-title">The 5 Endgame Positions Every Club Player Must Know</div><div class="popular-post-meta">8,420 reads · IM Dhruv</div></div></div>
+          <div class="popular-post"><div class="popular-post-num">2</div><div><div class="popular-post-title">Why the London System is Perfect for Beginners</div><div class="popular-post-meta">5,810 reads · FM Arjun</div></div></div>
+          <div class="popular-post"><div class="popular-post-num">3</div><div><div class="popular-post-title">Bobby Fischer's 10 Greatest Chess Games</div><div class="popular-post-meta">4,260 reads · IM Dhruv</div></div></div>
+          <div class="popular-post"><div class="popular-post-num">4</div><div><div class="popular-post-title">How to Prepare Mentally for Tournaments</div><div class="popular-post-meta">3,940 reads · WFM Priya</div></div></div>
+        </div>
+        <div class="sidebar-widget" style="background:var(--navy);border-color:rgba(200,149,46,.2)">
+          <h4 style="color:var(--white)">📬 Newsletter</h4>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.6);margin-bottom:14px;line-height:1.65">Get weekly chess lessons and tips delivered to your inbox.</p>
+          <input type="email" class="form-input" placeholder="Your email address" style="margin-bottom:10px">
+          <button class="btn btn-gold" style="width:100%;justify-content:center">Subscribe Free</button>
+        </div>
+        <div class="sidebar-widget">
+          <h4>🎓 Free Resources</h4>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a href="#" style="display:flex;gap:10px;align-items:center;padding:10px;background:var(--gold-pale);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--navy)">📄 Beginner Openings Cheatsheet</a>
+            <a href="#" style="display:flex;gap:10px;align-items:center;padding:10px;background:var(--gold-pale);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--navy)">📄 100 Tactical Puzzles PDF</a>
+            <a href="#" style="display:flex;gap:10px;align-items:center;padding:10px;background:var(--gold-pale);border-radius:8px;font-size:.83rem;font-weight:600;color:var(--navy)">📄 Tournament Prep Checklist</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+</body>
+</html>

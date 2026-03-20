@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gallery — KnightVision Chess Academy. Photos from tournaments, coaching sessions, student achievements, and academy events in Bogra, Bangladesh.">
+<title>Gallery — KnightVision Chess Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* === GALLERY-SPECIFIC === */
+.gallery-filter-bar {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; justify-content: center;
+}
+.gal-btn {
+  padding: 9px 22px; border-radius: 100px; border: 1.5px solid var(--gray-1);
+  background: var(--white); font-size: .82rem; font-weight: 600; color: var(--text-3);
+  cursor: pointer; transition: all var(--tr); font-family: var(--font-b);
+}
+.gal-btn.active, .gal-btn:hover {
+  background: var(--navy); color: var(--white); border-color: var(--navy);
+}
+
+/* Masonry layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.gal-item {
+  border-radius: 12px; overflow: hidden; position: relative;
+  cursor: pointer; transition: all var(--tr);
+  background: var(--navy-2);
+}
+.gal-item:hover { transform: scale(1.03); box-shadow: var(--sh2); z-index: 2; }
+.gal-item:hover .gal-overlay { opacity: 1; }
+
+/* Different heights for visual masonry feel */
+.gal-item.tall { grid-row: span 2; }
+.gal-item.wide { grid-column: span 2; }
+
+.gal-inner {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.gal-inner.h-sm { min-height: 180px; }
+.gal-inner.h-md { min-height: 250px; }
+.gal-inner.h-lg { min-height: 380px; }
+
+/* Chess board tile background for each gallery item */
+.gal-bg {
+  position: absolute; inset: 0;
+  background-image: repeating-conic-gradient(rgba(255,255,255,.06) 0% 25%, transparent 0% 50%);
+  background-size: 36px 36px;
+}
+
+/* Each card has a unique gradient overlay color */
+.gal-c1 { background: linear-gradient(135deg, #0A1628 0%, #1A3160 100%); }
+.gal-c2 { background: linear-gradient(135deg, #122040 0%, #1E4FA0 100%); }
+.gal-c3 { background: linear-gradient(135deg, #1A3160 0%, #0A2040 100%); }
+.gal-c4 { background: linear-gradient(135deg, #0A1628 0%, #2962C8 100%); }
+.gal-c5 { background: linear-gradient(135deg, #1E4FA0 0%, #0A1628 100%); }
+.gal-c6 { background: linear-gradient(135deg, #061018 0%, #1A3160 100%); }
+
+.gal-piece {
+  font-size: 5rem; position: relative; z-index: 1;
+  transition: transform var(--tr);
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,.5));
+}
+.gal-item:hover .gal-piece { transform: scale(1.1); }
+.gal-piece.xl { font-size: 8rem; }
+.gal-piece.lg { font-size: 6rem; }
+.gal-piece.sm { font-size: 3.5rem; }
+
+/* Mini board inside gallery */
+.gal-board {
+  display: grid; grid-template-columns: repeat(8,1fr);
+  width: 100%; max-width: 220px; border-radius: 4px; overflow: hidden;
+  position: relative; z-index: 1; box-shadow: 0 8px 32px rgba(0,0,0,.4);
+}
+.gal-sq-l { aspect-ratio:1; background:#D9C9A8; display:flex;align-items:center;justify-content:center;font-size:.7rem; }
+.gal-sq-d { aspect-ratio:1; background:#4870A0; display:flex;align-items:center;justify-content:center;font-size:.7rem; }
+
+.gal-label-badge {
+  position: absolute; bottom: 12px; left: 12px;
+  background: rgba(10,22,40,.85); color: var(--white);
+  font-size: .72rem; font-weight: 600; padding: 5px 12px;
+  border-radius: 100px; backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.1); z-index: 5;
+}
+.gal-trophy {
+  position: absolute; top: 12px; right: 12px;
+  font-size: 1.2rem; z-index: 5;
+}
+
+.gal-overlay {
+  position: absolute; inset: 0; background: rgba(10,22,40,.75);
+  opacity: 0; transition: opacity var(--tr); z-index: 4;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+}
+.gal-overlay-icon { font-size: 2.2rem; }
+.gal-overlay-text { color: var(--white); font-size: .82rem; font-weight: 600; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; background: rgba(0,0,0,.92); z-index: 99999;
+  display: none; align-items: center; justify-content: center; padding: 40px;
+  backdrop-filter: blur(10px);
+}
+.lightbox.open { display: flex; }
+.lightbox-inner {
+  max-width: 700px; width: 100%; background: var(--navy-2);
+  border-radius: 20px; overflow: hidden; position: relative;
+  border: 1px solid rgba(200,149,46,.3);
+}
+.lightbox-visual {
+  height: 380px; display: flex; align-items: center; justify-content: center;
+  font-size: 9rem; position: relative;
+}
+.lightbox-info { padding: 24px 28px; }
+.lightbox-close {
+  position: absolute; top: 16px; right: 16px; width: 40px; height: 40px;
+  background: rgba(255,255,255,.1); border: none; border-radius: 50%;
+  color: var(--white); font-size: 1.2rem; cursor: pointer; z-index: 10;
+  transition: all var(--tr);
+}
+.lightbox-close:hover { background: var(--gold); color: var(--navy); }
+
+/* Stats strip */
+.gallery-stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding: 40px 24px; background: var(--navy); }
+.gal-stat { text-align: center; }
+.gal-stat-num { font-family: var(--font-d); font-size: 2.2rem; font-weight: 900; color: var(--gold-2); }
+.gal-stat-label { font-size: .74rem; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .08em; margin-top: 4px; }
+
+/* Video section */
+.video-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 36px; }
+.video-thumb {
+  border-radius: 12px; overflow: hidden; position: relative; cursor: pointer;
+  transition: all var(--tr); aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+}
+.video-thumb:hover { transform: translateY(-4px); box-shadow: var(--sh2); }
+.video-thumb:hover .play-btn { transform: scale(1.15); background: var(--gold); }
+.play-btn {
+  width: 56px; height: 56px; border-radius: 50%; background: rgba(200,149,46,.9);
+  display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+  color: var(--navy); transition: all var(--tr); position: relative; z-index: 2;
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+}
+.video-label {
+  position: absolute; bottom: 10px; left: 0; right: 0; text-align: center;
+  font-size: .76rem; font-weight: 600; color: var(--white);
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+}
+
+@media(max-width:900px) { .gallery-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:500px) { .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; } .gal-piece.xl { font-size:5rem; } .video-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-page="gallery">
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<div class="page-hero" style="min-height: 420px;">
+  <div class="chess-hero-bg">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.07" preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
+      <defs><pattern id="chessG" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+        <rect x="0" y="0" width="40" height="40" fill="white"/>
+        <rect x="40" y="40" width="40" height="40" fill="white"/>
+      </pattern></defs>
+      <rect width="640" height="640" fill="url(#chessG)"/>
+    </svg>
+    <!-- Scattered pieces as background art -->
+    <div style="position:absolute;right:-40px;top:10%;font-size:280px;opacity:.05;color:white;line-height:1;pointer-events:none;transform:rotate(12deg)">♜</div>
+    <div style="position:absolute;left:5%;bottom:-40px;font-size:240px;opacity:.04;color:white;line-height:1;pointer-events:none;transform:rotate(-8deg)">♝</div>
+    <div style="position:absolute;left:42%;top:20%;font-size:160px;opacity:.03;color:white;line-height:1;pointer-events:none">♛</div>
+    <!-- Decorative mini board in hero -->
+    <div style="position:absolute;right:8%;top:50%;transform:translateY(-50%);opacity:.18;pointer-events:none">
+      <div id="hero-gal-board" style="width:200px"></div>
+    </div>
+  </div>
+  <div class="hero-overlay" style="background: linear-gradient(135deg,rgba(10,22,40,.95) 0%,rgba(26,49,96,.8) 60%,rgba(10,22,40,.6) 100%)"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Gallery</span></div>
+    <h1>Photo Gallery</h1>
+    <p>A visual journey through tournaments, coaching sessions, student milestones, and life at KnightVision Chess Academy.</p>
+    <div style="display:flex;gap:16px;margin-top:20px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(255,255,255,.65)">
+        <span style="color:var(--gold-2)">📸</span> 120+ Photos
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(255,255,255,.65)">
+        <span style="color:var(--gold-2)">🎬</span> 6 Videos
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:.85rem;color:rgba(255,255,255,.65)">
+        <span style="color:var(--gold-2)">📅</span> Since 2012
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="gallery-stats">
+  <div class="gal-stat"><div class="gal-stat-num">120+</div><div class="gal-stat-label">Photos</div></div>
+  <div class="gal-stat"><div class="gal-stat-num">48</div><div class="gal-stat-label">Tournament Events</div></div>
+  <div class="gal-stat"><div class="gal-stat-num">14</div><div class="gal-stat-label">Years of Memories</div></div>
+  <div class="gal-stat"><div class="gal-stat-num">6</div><div class="gal-stat-label">Video Highlights</div></div>
+</div>
+
+<!-- PHOTO GALLERY -->
+<section class="section" style="background: var(--cream);">
+  <div class="container">
+    <div class="sec-header sec-header-center">
+      <div class="label">Our Moments</div>
+      <h2 class="title" style="margin-bottom: 12px;">Life at KnightVision</h2>
+      <p class="subtitle">Tournaments, classroom coaching, student celebrations, and the everyday magic of chess education.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="gallery-filter-bar" style="margin-top: 36px;">
+      <button class="gal-btn active">All Photos</button>
+      <button class="gal-btn">🏆 Tournaments</button>
+      <button class="gal-btn">📚 Coaching</button>
+      <button class="gal-btn">🌟 Achievements</button>
+      <button class="gal-btn">🏫 Academy Life</button>
+      <button class="gal-btn">👶 Junior Club</button>
+      <button class="gal-btn">🌐 Online Events</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+
+      <!-- 1: Tournament hero - tall -->
+      <div class="gal-item tall" onclick="openLightbox('Spring Open 2025 — Championship Round', '🏆', 'Tournament')">
+        <div class="gal-inner gal-c1 h-lg">
+          <div class="gal-bg"></div>
+          <!-- Chess board in this cell -->
+          <div id="gal-board-1" class="gal-board"></div>
+          <div class="gal-trophy">🏆</div>
+          <div class="gal-label-badge">🏆 Spring Open 2025 — Final Round</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 2: Coach teaching -->
+      <div class="gal-item" onclick="openLightbox('IM Dhruv coaching intermediate group', '♚', 'Coaching')">
+        <div class="gal-inner gal-c2 h-md">
+          <div class="gal-bg"></div>
+          <div class="gal-piece lg">♚</div>
+          <div class="gal-label-badge">📚 Group Coaching Session</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 3: Junior kids -->
+      <div class="gal-item" onclick="openLightbox('Junior Chess Club — Saturday Morning', '🌟', 'Junior Club')">
+        <div class="gal-inner gal-c3 h-md">
+          <div class="gal-bg"></div>
+          <div class="gal-piece lg">🌟</div>
+          <div class="gal-label-badge">👶 Junior Club — Saturday Class</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 4: Ananya trophy - wide -->
+      <div class="gal-item wide" onclick="openLightbox('Ananya Roy — National Under-14 Champion 2024', '🥇', 'Achievement')">
+        <div class="gal-inner gal-c4 h-md">
+          <div class="gal-bg"></div>
+          <div style="position:relative;z-index:1;text-align:center">
+            <div style="font-size:5rem;margin-bottom:10px">🥇</div>
+            <div style="font-family:var(--font-d);font-size:1.3rem;color:var(--white);font-weight:700">Ananya Roy</div>
+            <div style="font-size:.82rem;color:var(--gold-2);margin-top:4px">National U-14 Champion 2024</div>
+          </div>
+          <div class="gal-label-badge">🥇 National Champion Celebration</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 5: Online class screenshot -->
+      <div class="gal-item" onclick="openLightbox('Online Live Class — FM Arjun Mehta', '💻', 'Online')">
+        <div class="gal-inner gal-c5 h-sm">
+          <div class="gal-bg"></div>
+          <div class="gal-piece sm">💻</div>
+          <div class="gal-label-badge">🌐 Online Live Session</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 6: Academy exterior -->
+      <div class="gal-item" onclick="openLightbox('KnightVision Academy Building — Bogra', '🏛️', 'Academy')">
+        <div class="gal-inner gal-c1 h-sm">
+          <div class="gal-bg"></div>
+          <div class="gal-piece sm">🏛️</div>
+          <div class="gal-label-badge">🏫 Academy Premises, Bogra</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 7: Trophies collection - tall -->
+      <div class="gal-item tall" onclick="openLightbox('Trophy Cabinet — 48 Tournament Wins', '🏆', 'Achievement')">
+        <div class="gal-inner gal-c6 h-lg">
+          <div class="gal-bg"></div>
+          <div style="position:relative;z-index:1;text-align:center;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:20px">
+            <div style="font-size:2.8rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))">🥇</div>
+            <div style="font-size:3.5rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))">🏆</div>
+            <div style="font-size:2.8rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))">🥈</div>
+            <div style="font-size:2.4rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))">🎖️</div>
+            <div style="font-size:2.8rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))">🥉</div>
+            <div style="font-size:2.4rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,.3))">🏅</div>
+          </div>
+          <div class="gal-label-badge">🏆 Trophy Cabinet — 48 Wins</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 8: Blitz tournament -->
+      <div class="gal-item" onclick="openLightbox('Annual Blitz Tournament 2024', '⚡', 'Tournament')">
+        <div class="gal-inner gal-c2 h-sm">
+          <div class="gal-bg"></div>
+          <div style="position:relative;z-index:1;text-align:center">
+            <div style="font-size:3.5rem">⚡</div>
+            <div style="font-size:.8rem;color:var(--gold-2);margin-top:8px;font-weight:600">Blitz Night</div>
+          </div>
+          <div class="gal-label-badge">⚡ Annual Blitz Night 2024</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 9: Training room with boards -->
+      <div class="gal-item" onclick="openLightbox('Main Training Hall — 40 Boards', '♟', 'Academy')">
+        <div class="gal-inner gal-c3 h-sm">
+          <div class="gal-bg"></div>
+          <div style="position:relative;z-index:1;text-align:center">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px">
+              <div style="font-size:1.8rem">♟</div><div style="font-size:1.8rem">♞</div>
+              <div style="font-size:1.8rem">♜</div><div style="font-size:1.8rem">♝</div>
+            </div>
+            <div style="font-size:.78rem;color:var(--gold-2);font-weight:600">40 Boards</div>
+          </div>
+          <div class="gal-label-badge">📋 Main Training Hall</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 10: Medal ceremony -->
+      <div class="gal-item wide" onclick="openLightbox('Medal Ceremony — Spring Open 2025', '🎖️', 'Tournament')">
+        <div class="gal-inner gal-c4 h-sm">
+          <div class="gal-bg"></div>
+          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:20px">
+            <div style="text-align:center"><div style="font-size:3rem">🥇</div><div style="font-size:.72rem;color:var(--gold-2);font-weight:700;margin-top:4px">Champion</div></div>
+            <div style="text-align:center"><div style="font-size:2.5rem">🥈</div><div style="font-size:.72rem;color:rgba(255,255,255,.6);margin-top:4px">Runner Up</div></div>
+            <div style="text-align:center"><div style="font-size:2.5rem">🥉</div><div style="font-size:.72rem;color:rgba(255,255,255,.5);margin-top:4px">3rd Place</div></div>
+          </div>
+          <div class="gal-label-badge">🎖️ Prize Distribution Ceremony</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 11: WFM Priya coaching kids -->
+      <div class="gal-item" onclick="openLightbox('WFM Priya Krishnan — Junior Workshop', '♛', 'Coaching')">
+        <div class="gal-inner gal-c5 h-md">
+          <div class="gal-bg"></div>
+          <div style="position:relative;z-index:1;text-align:center">
+            <div style="font-size:5rem">♛</div>
+            <div style="font-size:.8rem;color:var(--gold-2);font-weight:600;margin-top:8px">WFM Priya · Junior Workshop</div>
+          </div>
+          <div class="gal-label-badge">♛ Junior Workshop Session</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+      <!-- 12: FIDE visit -->
+      <div class="gal-item" onclick="openLightbox('Bangladesh Chess Federation Official Visit', '🏛️', 'Academy')">
+        <div class="gal-inner gal-c1 h-md">
+          <div class="gal-bg"></div>
+          <div style="position:relative;z-index:1;text-align:center">
+            <div style="font-size:2.5rem">🇧🇩</div>
+            <div style="font-size:1.5rem;margin-top:6px">♟</div>
+            <div style="font-size:.78rem;color:var(--gold-2);font-weight:600;margin-top:6px">BCF Official Visit</div>
+          </div>
+          <div class="gal-label-badge">🏛️ BCF Official Recognition</div>
+        </div>
+        <div class="gal-overlay"><div class="gal-overlay-icon">🔍</div><div class="gal-overlay-text">View Photo</div></div>
+      </div>
+
+    </div><!-- end gallery grid -->
+
+    <div style="text-align:center; margin-top:32px;">
+      <button class="btn btn-outline-navy">Load More Photos</button>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO HIGHLIGHTS -->
+<section class="section" style="background: var(--navy);">
+  <div class="container">
+    <div class="sec-header">
+      <div class="label" style="color:var(--gold-2);">Video Highlights</div>
+      <h2 class="title title-white">Watch Our Academy in Action</h2>
+    </div>
+    <div class="video-grid">
+      <div class="video-thumb gal-c2">
+        <div class="gal-bg"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div style="font-size:3.5rem;margin-bottom:10px">♚</div>
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="video-label">Spring Open 2025 Highlights</div>
+      </div>
+      <div class="video-thumb gal-c3">
+        <div class="gal-bg"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div style="font-size:3.5rem;margin-bottom:10px">🎓</div>
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="video-label">IM Dhruv's Masterclass: Endgames</div>
+      </div>
+      <div class="video-thumb gal-c4">
+        <div class="gal-bg"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div style="font-size:3.5rem;margin-bottom:10px">🌟</div>
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="video-label">Ananya Roy — National Champion Story</div>
+      </div>
+      <div class="video-thumb gal-c5">
+        <div class="gal-bg"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div style="font-size:3.5rem;margin-bottom:10px">👶</div>
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="video-label">Junior Chess Club Tour</div>
+      </div>
+      <div class="video-thumb gal-c1">
+        <div class="gal-bg"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div style="font-size:3.5rem;margin-bottom:10px">💻</div>
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="video-label">Online Platform Walkthrough</div>
+      </div>
+      <div class="video-thumb gal-c6">
+        <div class="gal-bg"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+          <div style="font-size:3.5rem;margin-bottom:10px">🏛️</div>
+          <div class="play-btn">▶</div>
+        </div>
+        <div class="video-label">KnightVision Academy Tour 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="container">
+    <h2>Want to Be Part of Our Story?</h2>
+    <p>Enroll today and create your own chapter in the KnightVision legacy.</p>
+    <div class="cta-btns">
+      <a href="register.html" class="btn btn-gold">Enroll Now</a>
+      <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <div class="lightbox-visual gal-c2">
+      <div class="gal-bg"></div>
+      <span id="lb-piece" style="position:relative;z-index:1;">♟</span>
+    </div>
+    <div class="lightbox-info">
+      <div id="lb-cat" class="badge badge-gold" style="margin-bottom:10px">Category</div>
+      <div id="lb-title" style="font-family:var(--font-d);font-size:1.2rem;font-weight:700;color:var(--white)">Photo Title</div>
+      <div style="margin-top:12px;display:flex;gap:12px">
+        <a href="register.html" class="btn btn-gold btn-sm">🎓 Enroll Now</a>
+        <button class="btn btn-outline-white btn-sm" onclick="closeLightbox()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+// Build mini boards in gallery items
+function buildGalBoard(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const pieces = {
+    '00':'♜','01':'♞','02':'♝','03':'♛','04':'♚','05':'♝','06':'♞','07':'♜',
+    '10':'♟','11':'♟','12':'♟','13':'♟','14':'♟','15':'♟','16':'♟','17':'♟',
+    '60':'♙','61':'♙','62':'♙','63':'♙','64':'♙','65':'♙','66':'♙','67':'♙',
+    '70':'♖','71':'♘','72':'♗','73':'♕','74':'♔','75':'♗','76':'♘','77':'♖'
+  };
+  for (let r = 0; r < 8; r++) {
+    for (let c = 0; c < 8; c++) {
+      const sq = document.createElement('div');
+      sq.className = (r + c) % 2 === 0 ? 'gal-sq-l' : 'gal-sq-d';
+      const p = pieces['' + r + c];
+      if (p) { sq.textContent = p; sq.style.fontSize = '0.6rem'; }
+      el.appendChild(sq);
+    }
+  }
+}
+buildGalBoard('gal-board-1');
+buildChessBoard('hero-gal-board', false);
+
+// Filter buttons
+document.querySelectorAll('.gal-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.gal-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Lightbox
+function openLightbox(title, piece, cat) {
+  document.getElementById('lb-title').textContent = title;
+  document.getElementById('lb-piece').textContent = piece;
+  document.getElementById('lb-cat').textContent = '📷 ' + cat;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e) {
+  if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+</script>
+</body>
+</html>

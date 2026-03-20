@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Testimonials — KnightVision Chess Academy. Real reviews from students, parents, and competitive chess players who trained with us.">
+<title>Testimonials & Reviews — KnightVision Chess Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* === TESTIMONIALS PAGE === */
+.testi-page-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.testi-full-card {
+  background: var(--white); border: 1px solid var(--gray-1);
+  border-radius: var(--r-lg); padding: 32px;
+  transition: all var(--tr); position: relative; overflow: hidden;
+}
+.testi-full-card::before {
+  content: '"'; position: absolute; top: -10px; left: 20px;
+  font-family: var(--font-d); font-size: 8rem; font-weight: 900;
+  color: var(--gold); opacity: .08; line-height: 1; pointer-events: none;
+}
+.testi-full-card:hover { transform: translateY(-5px); box-shadow: var(--sh2); border-color: rgba(200,149,46,.25); }
+.testi-stars-row { display: flex; gap: 3px; margin-bottom: 16px; }
+.star { color: var(--gold-2); font-size: 1rem; }
+.testi-body-text {
+  font-size: .9rem; color: var(--text-3); line-height: 1.85;
+  font-style: italic; margin-bottom: 22px; position: relative; z-index: 1;
+}
+.testi-divider { height: 1px; background: var(--gray-1); margin-bottom: 18px; }
+.testi-person { display: flex; align-items: center; gap: 14px; }
+.testi-avatar-large {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-3), var(--navy));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-d); font-size: 1.1rem; font-weight: 700;
+  color: var(--gold-2); flex-shrink: 0; border: 2px solid var(--gold-pale);
+}
+.testi-person-name { font-weight: 700; color: var(--navy); font-size: .95rem; }
+.testi-person-role { font-size: .78rem; color: var(--text-3); margin-top: 2px; }
+.testi-badge-tag { font-size: .7rem; font-weight: 700; padding: 3px 10px; border-radius: 100px; background: var(--gold-pale); color: var(--navy); display: inline-flex; margin-top: 6px; }
+
+/* Featured testimonial — wide card at top */
+.testi-featured {
+  background: linear-gradient(135deg, var(--navy), var(--navy-3));
+  border: 1px solid rgba(200,149,46,.3);
+  border-radius: var(--r-lg); padding: 40px;
+  position: relative; overflow: hidden; margin-bottom: 40px;
+}
+.testi-featured::before {
+  content: '"'; position: absolute; top: -20px; left: 24px;
+  font-family: var(--font-d); font-size: 12rem; font-weight: 900;
+  color: var(--gold); opacity: .08; line-height: 1; pointer-events: none;
+}
+.testi-featured-grid { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+.testi-featured-text { font-family: var(--font-d); font-size: 1.2rem; color: rgba(255,255,255,.88); line-height: 1.75; font-style: italic; position: relative; z-index: 1; }
+.testi-featured-board { width: 220px; opacity: .7; flex-shrink: 0; }
+
+/* Stats bar for this page */
+.rating-summary {
+  display: flex; gap: 40px; align-items: center; flex-wrap: wrap;
+  background: var(--navy); padding: 32px 40px; border-radius: var(--r-lg);
+  margin-bottom: 48px; border: 1px solid rgba(200,149,46,.2);
+}
+.rating-big { font-family: var(--font-d); font-size: 4rem; font-weight: 900; color: var(--gold-2); line-height: 1; }
+.rating-stars-row { display: flex; gap: 4px; margin: 8px 0; }
+.rating-count { font-size: .84rem; color: rgba(255,255,255,.5); }
+.rating-breakdown { flex: 1; min-width: 200px; }
+.rating-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.rating-bar-label { font-size: .78rem; color: rgba(255,255,255,.6); width: 50px; }
+.rating-bar-track { flex: 1; height: 6px; background: rgba(255,255,255,.1); border-radius: 3px; }
+.rating-bar-fill { height: 100%; background: var(--gold); border-radius: 3px; }
+.rating-bar-count { font-size: .74rem; color: rgba(255,255,255,.4); width: 30px; text-align: right; }
+
+/* Category tabs for reviews */
+.review-tabs { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
+.review-tab { padding: 8px 22px; border-radius: 100px; border: 1.5px solid var(--gray-1); background: var(--white); font-size: .82rem; font-weight: 600; color: var(--text-3); cursor: pointer; transition: all var(--tr); font-family: var(--font-b); }
+.review-tab.active, .review-tab:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+/* Video testimonials */
+.video-testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.video-testi-card {
+  background: var(--navy-2); border-radius: var(--r); overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08); transition: all var(--tr); cursor: pointer;
+}
+.video-testi-card:hover { transform: translateY(-4px); border-color: rgba(200,149,46,.3); }
+.vt-thumb {
+  height: 160px; display: flex; align-items: center; justify-content: center;
+  position: relative; background: linear-gradient(135deg, var(--navy-3), var(--navy));
+}
+.vt-thumb-bg { position: absolute; inset: 0; background-image: repeating-conic-gradient(rgba(255,255,255,.04) 0% 25%, transparent 0% 50%); background-size: 36px 36px; }
+.vt-play { width: 48px; height: 48px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--navy); position: relative; z-index: 1; box-shadow: 0 4px 20px rgba(200,149,46,.4); }
+.vt-piece { font-size: 3rem; position: relative; z-index: 1; margin-right: 16px; }
+.vt-body { padding: 16px; }
+.vt-name { font-weight: 700; font-size: .9rem; color: var(--white); margin-bottom: 3px; }
+.vt-role { font-size: .76rem; color: rgba(255,255,255,.45); }
+.vt-duration { font-size: .72rem; color: var(--gold-2); margin-top: 6px; }
+
+/* Press section */
+.press-logo {
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px 32px; background: var(--white); border: 1px solid var(--gray-1);
+  border-radius: var(--r); font-size: .88rem; font-weight: 600; color: var(--text-3);
+  gap: 8px; transition: all var(--tr);
+}
+.press-logo:hover { border-color: var(--gold); color: var(--navy); box-shadow: var(--sh); }
+
+@media(max-width: 900px) { .testi-page-grid { grid-template-columns: 1fr 1fr; } .testi-featured-grid { grid-template-columns: 1fr; } .testi-featured-board { display: none; } .video-testi-grid { grid-template-columns: 1fr; } }
+@media(max-width: 600px) { .testi-page-grid { grid-template-columns: 1fr; } .rating-summary { flex-direction: column; text-align: center; } }
+</style>
+</head>
+<body data-page="testimonials">
+<div id="nav-placeholder"></div>
+
+<!-- HERO -->
+<div class="page-hero" style="min-height: 400px;">
+  <div class="chess-hero-bg">
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.06" preserveAspectRatio="xMidYMid slice" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
+      <defs><pattern id="chessT" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+        <rect x="0" y="0" width="40" height="40" fill="white"/>
+        <rect x="40" y="40" width="40" height="40" fill="white"/>
+      </pattern></defs>
+      <rect width="640" height="640" fill="url(#chessT)"/>
+    </svg>
+    <!-- Quotation mark art -->
+    <div style="position:absolute;left:3%;top:10%;font-size:320px;opacity:.04;color:white;line-height:1;font-family:Georgia,serif;pointer-events:none">"</div>
+    <div style="position:absolute;right:3%;bottom:-20px;font-size:280px;opacity:.03;color:white;line-height:1;font-family:Georgia,serif;pointer-events:none">"</div>
+    <!-- Chess piece silhouette -->
+    <div style="position:absolute;right:12%;top:50%;transform:translateY(-50%);opacity:.2;pointer-events:none">
+      <div id="testi-hero-board" style="width:180px"></div>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> › <span>Testimonials</span></div>
+    <h1>Student & Parent Reviews</h1>
+    <p>Real stories from real students, parents, and chess players who chose KnightVision to transform their chess journey.</p>
+    <div style="display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="color:var(--gold-2);font-size:1.1rem">★★★★★</span>
+        <span style="color:rgba(255,255,255,.8);font-size:.88rem">4.9 / 5.0 average</span>
+      </div>
+      <div style="color:rgba(255,255,255,.55);font-size:.88rem">Based on 240+ verified reviews</div>
+    </div>
+  </div>
+</div>
+
+<!-- RATING SUMMARY + FEATURED TESTI -->
+<section class="section" style="background: var(--cream);">
+  <div class="container">
+
+    <!-- Rating overview -->
+    <div class="rating-summary">
+      <div style="text-align:center;">
+        <div class="rating-big">4.9</div>
+        <div class="rating-stars-row">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <div class="rating-count">240+ reviews</div>
+      </div>
+      <div class="rating-breakdown">
+        <div class="rating-bar-row"><span class="rating-bar-label">5 stars</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:88%"></div></div><span class="rating-bar-count">211</span></div>
+        <div class="rating-bar-row"><span class="rating-bar-label">4 stars</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:9%"></div></div><span class="rating-bar-count">22</span></div>
+        <div class="rating-bar-row"><span class="rating-bar-label">3 stars</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:2%"></div></div><span class="rating-bar-count">5</span></div>
+        <div class="rating-bar-row"><span class="rating-bar-label">2 stars</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div><span class="rating-bar-count">2</span></div>
+        <div class="rating-bar-row"><span class="rating-bar-label">1 star</span><div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div><span class="rating-bar-count">0</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2)">🎓</span> 98% would recommend KnightVision</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2)">♟</span> Students from 12 districts of Bangladesh</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:.88rem;color:rgba(255,255,255,.7)"><span style="color:var(--gold-2)">🏆</span> 32 national medalists produced</div>
+      </div>
+    </div>
+
+    <!-- Featured testimonial -->
+    <div class="testi-featured">
+      <div class="testi-featured-grid">
+        <div>
+          <div style="display:flex;gap:3px;margin-bottom:20px;">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="testi-featured-text">"KnightVision didn't just teach my daughter chess — it transformed her completely. After 18 months with IM Dhruv and WFM Priya, she went from not knowing how the knight moves to becoming the National Under-14 Champion. The structured curriculum, the personal attention, the tournament preparation — everything was exceptional. I've recommended this academy to every parent I know."</p>
+          <div style="margin-top:28px;display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:1.2rem;font-weight:700;color:var(--navy)">MR</div>
+            <div>
+              <div style="font-weight:700;color:var(--white);font-size:1rem">Mohammad Rezaul Islam</div>
+              <div style="font-size:.82rem;color:rgba(255,255,255,.5)">Parent of Ananya Roy — National U-14 Champion 2024</div>
+              <div style="font-size:.72rem;color:var(--gold-2);margin-top:4px">Enrolled since 2022</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-featured-board">
+          <div id="testi-feat-board" style="border-radius:8px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4)"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="review-tabs">
+      <button class="review-tab active">All Reviews</button>
+      <button class="review-tab">👨‍👩‍👧 Parents</button>
+      <button class="review-tab">🎓 Students</button>
+      <button class="review-tab">🏆 Competitive Players</button>
+      <button class="review-tab">💻 Online Students</button>
+    </div>
+
+    <!-- Reviews grid -->
+    <div class="testi-page-grid">
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"The coaches at KnightVision are truly extraordinary. IM Dhruv Sharma has a rare gift — he can explain complex positions in a way that a 10-year-old completely understands. My son went from unrated to FIDE 1480 in just 11 months. Absolutely outstanding academy."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">SR</div>
+          <div>
+            <div class="testi-person-name">Sumaiya Rahman</div>
+            <div class="testi-person-role">Parent · Enrolled 2023</div>
+            <span class="testi-badge-tag">👨‍👩‍👧 Parent Review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"I joined as a complete adult beginner at age 34. Rahul Banerjee was incredibly patient with me. Within 6 months I was competing in club tournaments. The structured approach to openings and endgames is methodical and clear. I cannot imagine a better learning environment."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">KI</div>
+          <div>
+            <div class="testi-person-name">Kabir Islam</div>
+            <div class="testi-person-role">Adult Beginner → FIDE 1650</div>
+            <span class="testi-badge-tag">🎓 Student Review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"FM Arjun's strategic coaching completely changed how I think at the board. I was stuck at 1700 for 3 years before joining KnightVision. Six months later I crossed 1900 and won my first open section tournament. The positional training and pawn structure lessons are world-class."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">ZA</div>
+          <div>
+            <div class="testi-person-name">Zara Ahmed</div>
+            <div class="testi-person-role">Competitive Player · FIDE 1900</div>
+            <span class="testi-badge-tag">🏆 Competitive Player</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"The online classes are just as effective as in-person. WFM Priya's junior teaching is phenomenal — she makes chess feel like an adventure for my 8-year-old. The Zoom sessions are interactive, well-structured, and the recordings let us review lessons anytime."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">MH</div>
+          <div>
+            <div class="testi-person-name">Mohammed Hossain</div>
+            <div class="testi-person-role">Parent · Two children enrolled</div>
+            <span class="testi-badge-tag">💻 Online Review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"KnightVision is not just a chess school — it's a chess community. The tournaments they organize, the study groups, the WhatsApp coaching groups — all of it creates an environment where you naturally improve. I came as a 1300 and left 18 months later at 1780."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">DP</div>
+          <div>
+            <div class="testi-person-name">Dev Patel</div>
+            <div class="testi-person-role">Student · FIDE 1780</div>
+            <span class="testi-badge-tag">🎓 Student Review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"What I appreciate most is the chess psychology coaching. IM Dhruv taught me how to manage clock pressure, recover from a bad position mentally, and maintain focus for 5-hour classical games. This has been as valuable as any opening preparation."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">RC</div>
+          <div>
+            <div class="testi-person-name">Rahim Chowdhury</div>
+            <div class="testi-person-role">Tournament Prep Student</div>
+            <span class="testi-badge-tag">🏆 Competitive Player</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"My daughter was shy and lacked confidence before joining KnightVision's Junior Club. WFM Priya and Rahul created such a warm, supportive environment. Now she plays with confidence, thinks critically, and even teaches her younger siblings. Chess changed her!"</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">RK</div>
+          <div>
+            <div class="testi-person-name">Rashida Khatun</div>
+            <div class="testi-person-role">Parent · Junior Club Member</div>
+            <span class="testi-badge-tag">👨‍👩‍👧 Parent Review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"I live in Dhaka but attend all my sessions online. The online platform is seamless — the Lichess integration, the shared analysis boards, the homework assignments. I feel like I am in the room with my coach. KnightVision has genuinely innovated online chess education."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">FH</div>
+          <div>
+            <div class="testi-person-name">Farhan Haque</div>
+            <div class="testi-person-role">Online Student · Dhaka</div>
+            <span class="testi-badge-tag">💻 Online Review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-full-card">
+        <div class="testi-stars-row"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="testi-body-text">"The GM Mentorship program with IM Dhruv is worth every taka. In 6 months we've rebuilt my opening repertoire from scratch, analyzed 40+ of my tournament games, and developed a clear improvement plan. My rating has climbed from 1880 to 2020. First 2000+ milestone!"</p>
+        <div class="testi-divider"></div>
+        <div class="testi-person">
+          <div class="testi-avatar-large">AK</div>
+          <div>
+            <div class="testi-person-name">Arif Khan</div>
+            <div class="testi-person-role">FIDE CM · Rating 2020</div>
+            <span class="testi-badge-tag">🏆 Elite Program</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:36px;">
+      <button class="btn btn-outline-navy">Load More Reviews</button>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO TESTIMONIALS -->
+<section class="section" style="background: var(--navy);">
+  <div class="container">
+    <div class="sec-header">
+      <div class="label" style="color:var(--gold-2);">Video Reviews</div>
+      <h2 class="title title-white">Hear It Directly from Our Students</h2>
+    </div>
+    <div class="video-testi-grid" style="margin-top:36px;">
+      <div class="video-testi-card">
+        <div class="vt-thumb">
+          <div class="vt-thumb-bg"></div>
+          <div class="vt-piece">♚</div>
+          <div class="vt-play">▶</div>
+        </div>
+        <div class="vt-body">
+          <div class="vt-name">Ananya Roy</div>
+          <div class="vt-role">National U-14 Champion — her journey story</div>
+          <div class="vt-duration">▶ 3:42</div>
+        </div>
+      </div>
+      <div class="video-testi-card">
+        <div class="vt-thumb">
+          <div class="vt-thumb-bg"></div>
+          <div class="vt-piece">👨‍👩‍👧</div>
+          <div class="vt-play">▶</div>
+        </div>
+        <div class="vt-body">
+          <div class="vt-name">Sumaiya Rahman</div>
+          <div class="vt-role">Parent review — why we chose KnightVision</div>
+          <div class="vt-duration">▶ 2:18</div>
+        </div>
+      </div>
+      <div class="video-testi-card">
+        <div class="vt-thumb">
+          <div class="vt-thumb-bg"></div>
+          <div class="vt-piece">♟</div>
+          <div class="vt-play">▶</div>
+        </div>
+        <div class="vt-body">
+          <div class="vt-name">Kabir Islam</div>
+          <div class="vt-role">Adult beginner to FIDE rated in 8 months</div>
+          <div class="vt-duration">▶ 4:05</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS MENTIONS -->
+<section class="section-sm" style="background: var(--white);">
+  <div class="container">
+    <div class="sec-header-center" style="text-align:center; margin-bottom:32px;">
+      <div class="label" style="justify-content:center;">Press & Media</div>
+      <h3 style="font-family:var(--font-d);font-size:1.4rem;color:var(--navy);">Featured In</h3>
+    </div>
+    <div class="grid-4">
+      <div class="press-logo">📰 Daily Star Bangladesh</div>
+      <div class="press-logo">📰 Prothom Alo</div>
+      <div class="press-logo">🌐 Chess.com Blog</div>
+      <div class="press-logo">🏛️ BCF Official Site</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="container">
+    <h2>Join 1,400+ Happy Students</h2>
+    <p>Experience for yourself what our students and parents are raving about.</p>
+    <div class="cta-btns">
+      <a href="register.html" class="btn btn-gold">Start Free Trial</a>
+      <a href="gallery.html" class="btn btn-outline-white">See Our Gallery</a>
+    </div>
+  </div>
+</div>
+
+<div id="footer-placeholder"></div>
+<script src="js/shared.js"></script>
+<script>
+  buildChessBoard('testi-feat-board', false);
+  buildChessBoard('testi-hero-board', false);
+  document.querySelectorAll('.review-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.review-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
